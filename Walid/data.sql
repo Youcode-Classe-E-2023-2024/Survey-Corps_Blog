@@ -1,19 +1,17 @@
 CREATE TABLE Articles (
     ArticleID INT PRIMARY KEY AUTO_INCREMENT,
     Titre VARCHAR(255),
-    Contenu TEXT NOT NULL,
-    DatePublication TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    HeurePublication TIME DEFAULT CURRENT_TIME,
+    Contenu TEXT ,
+    Date DATE DEFAULT CURRENT_DATE,
+    Heure TIME DEFAULT CURRENT_TIME,
     id_user INT,
     FOREIGN KEY (id_user) REFERENCES Utilisateurs(id_user)
 );
-
-
 CREATE TABLE Utilisateurs (
     id_user INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) UNIQUE NOT NULL,
-    MotDePasse VARCHAR(255) NOT NULL,
+    Nom VARCHAR(50) ,
+    Email VARCHAR(100) ,
+    MotDePasse VARCHAR(255) ,
     id_role INT 
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
@@ -24,9 +22,9 @@ CREATE TABLE roles (
 );
 CREATE TABLE Permissions (
     id_Permission INT PRIMARY KEY AUTO_INCREMENT,
-    NomPermission VARCHAR(50) NOT NULL
+    Permission VARCHAR(50)
 );
-CREATE TABLE UtilisateursPermissions (
+CREATE TABLE affecter_user_Permissions (
     id_user INT,
     id_Permission INT,
     PRIMARY KEY (id_user, id_Permission),
