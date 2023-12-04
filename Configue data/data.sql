@@ -6,6 +6,8 @@ CREATE TABLE Articles (
     Heure TIME DEFAULT CURRENT_TIME,
     id_user INT,
     FOREIGN KEY (id_user) REFERENCES Utilisateurs(id_user)
+
+    
 );
 CREATE TABLE Utilisateurs (
     id_user INT PRIMARY KEY AUTO_INCREMENT,
