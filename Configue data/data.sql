@@ -17,6 +17,7 @@ CREATE TABLE Utilisateurs (
     id_role INT 
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
+
 CREATE TABLE roles (
     id_role INT AUTO_INCREMENT PRIMARY KEY,
     role VARCHAR(50) 
@@ -26,6 +27,7 @@ CREATE TABLE Permissions (
     id_Permission INT PRIMARY KEY AUTO_INCREMENT,
     Permission VARCHAR(50)
 );
+
 CREATE TABLE affecter_user_Permissions (
     id_user INT,
     id_Permission INT,
