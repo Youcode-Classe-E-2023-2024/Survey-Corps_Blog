@@ -134,4 +134,34 @@
       if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
         alert('Please fill in all fields');
         return;
-     
+      }
+
+      // Create a blog object
+      const blog = {
+        image: imageInput.files[0],
+        title: titleInput.value,
+        description: descriptionInput.value,
+      };
+
+      // Store the blog object in local storage
+      let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+      console.log(blogs);
+      blogs.push(blog);
+      localStorage.setItem('blogs', JSON.stringify(blogs));
+
+      // Display the added blog in the list
+      displayBlogs();
+
+      // Clear the form inputs
+      imageInput.value = '';
+      titleInput.value = '';
+      descriptionInput.value = '';
+    }
+
+    // Call displayBlogs when the page loads
+    displayBlogs();
+  </script>
+
+</body>
+
+</html>
