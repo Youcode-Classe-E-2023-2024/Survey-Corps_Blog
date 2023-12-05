@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Blog Addition</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+
+<body class="bg-gray-200 flex justify-around items-center">
+
+  <div class="container bg-white p-8 shadow-md w-2/5 ">
+    <h1 class="text-2xl font-bold mb-4">Create Multiple Blogs</h1>
+
+    <form id="blogForm" class="flex flex-col">
+
+        <div>
+            <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover Photo</label>
+            <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                <div class="text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
+                        aria-hidden="true">
+                        <!-- ... (unchanged) ... -->
+                    </svg>
+                    <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label for="image"
+                            class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                            <span>Upload a File</span>
+                            <input id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
+                        </label>
+                        <p class="pl-1">or Drag and Drop</p>
+                    </div>
+                    <p class="mt-2 text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                </div>
+            </div>
+        </div>
+
+        <label for="title" class="mt-6">Title:</label>
+        <input type="text" id="title" required class="mt-2 border p-2">
+
+        <label for="description" class="mt-4">Description:</label>
+        <textarea id="description" required class="mt-2 border p-2 resize-y"></textarea>
+
+        <button type="button" onclick="addBlog()"
+            class="mt-6 bg-blue-500 text-white px-4 py-2 cursor-pointer">Add Blog</button>
+    </form>
+</div>
+
+
+  <div id="blogList" class="mt-4 w-80"></div>
+
+  <!-- <script>
+    function addBlog() {
+      const imageInput = document.getElementById('image');
+      const titleInput = document.getElementById('title');
+      const descriptionInput = document.getElementById('description');
+      const blogList = document.getElementById('blogList');
+
+      // Check if the inputs are not empty
+      if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      // Create a blog object
+      const blog = {
+        image: imageInput.files[0], // Assuming you want to display only the first selected image
+        title: titleInput.value,
+        description: descriptionInput.value,
+      };
+
+      // Store the blog object in local storage
+      let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+      blogs.push(blog);
+      localStorage.setItem('blogs', JSON.stringify(blogs));
+
+      // Display the added blog in the list
+      const blogItem = document.createElement('div');
+      const imageElement = document.createElement('img');
+      imageElement.src = URL.createObjectURL(blog.image); // Use createObjectURL to set image source
+      imageElement.alt = 'Blog Image';
+      const content = `<strong>${blog.title}</strong><p>${blog.description}</p>`;
+      blogItem.innerHTML = content;
+      blogItem.appendChild(imageElement); // Append the image element
+      blogList.appendChild(blogItem);
+
+      // Clear the form inputs
+      imageInput.value = '';
+      titleInput.value = '';
+      descriptionInput.value = '';
+    }
+  </script> -->
+
+
+  <script>
+    // Function to display blogs from local storage
+    function displayBlogs() {
+    const blogList = document.getElementById('blogList');
+    blogList.innerHTML = ''; // Clear the existing content
+
+    // Retrieve blogs from local storage
+    const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+    // Display each blog in the list
+    blogs.forEach(blog => {
+        const blogItem = document.createElement('div');
+
+        // Check if blog.image is a valid Blob or File object
+        if (blog.image instanceof Blob || blog.image instanceof File) {
+            const imageElement = document.createElement('img');
+            imageElement.src = URL.createObjectURL(blog.image);
+            imageElement.alt = 'Blog Image';
+            blogItem.appendChild(imageElement);
+        } else {
+            console.error('Invalid or missing image data for blog:', blog);
+            // Handle the case where image data is missing or invalid
+        }
+
+        const content = `<strong>${blog.title}</strong><p>${blog.description}</p>`;
+        blogItem.innerHTML += content;
+        blogList.appendChild(blogItem);
+    });
+}
+
+
+    // Function to add a new blog
+    function addBlog() {
+      const imageInput = document.getElementById('image');
+      const titleInput = document.getElementById('title');
+      const descriptionInput = document.getElementById('description');
+
+      // Check if the inputs are not empty
+      if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
+        alert('Please fill in all fields');
+        return;
+     
