@@ -28,7 +28,7 @@
         </form>
 
         <div class="mt-4">
-            <a href="SignUp.php" >
+            <a href="#" >
             <button
                 class="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
                 Sign Up
