@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Blog</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
+</head>
+<body>
+    
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+<script>
+    const setup = () => {
+        return {
+        isSidebarOpen: false,
+        currentSidebarTab: null,
+        isSettingsPanelOpen: false,
+        isSubHeaderOpen: false,
+        watchScreen() {
+            if (window.innerWidth <= 1024) {
+            this.isSidebarOpen = false
+            }
+        },
+    }
+  }
+</script>
+</body>
+</html>
