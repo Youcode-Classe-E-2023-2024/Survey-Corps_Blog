@@ -18,7 +18,7 @@ body {
 }
 .container {
   max-width: 1200px;
-  width: 95%;
+  width: 80%;
 }
 
 .slider-wrapper {
@@ -61,7 +61,7 @@ body {
 
 .slider-wrapper .image-list {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   font-size: 0;
   list-style: none;
@@ -71,7 +71,7 @@ body {
 }
 .fixer{
     position: relative;
-    width:400px;
+    width:1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,8 +82,8 @@ body {
 }
 
 .slider-wrapper .image-list .image-item {
-  width: 625px;
-  height: 400px;
+  width: 1200px;
+  height: 600px;
   object-fit: cover;
 }
 
