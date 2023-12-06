@@ -2,6 +2,7 @@ CREATE TABLE Articles (
     ArticleID INT PRIMARY KEY AUTO_INCREMENT,
     Titre VARCHAR(255),
     Contenu TEXT ,
+    Categorie VARCHAR(255),
     Date DATE DEFAULT CURRENT_DATE,
     Heure TIME DEFAULT CURRENT_TIME,
     id_user INT,
