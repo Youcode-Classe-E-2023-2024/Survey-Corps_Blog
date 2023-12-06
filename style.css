@@ -24,9 +24,7 @@ body {
 .slider-wrapper {
   position: relative;
 }
-.hidden{
-  
-}
+
 .slider-wrapper .slide-button {
   position: absolute;
   top: 50%;
