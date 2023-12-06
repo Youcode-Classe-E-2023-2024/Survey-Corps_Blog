@@ -9,12 +9,15 @@ CREATE TABLE Articles (
 
     
 );
+
+
 CREATE TABLE Utilisateurs (
     id_user INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(50) ,
+    username VARCHAR(60),
     Email VARCHAR(100) ,
     MotDePasse VARCHAR(255) ,
     id_role INT 
+    
     FOREIGN KEY (id_role) REFERENCES role(id_role)
 );
 
