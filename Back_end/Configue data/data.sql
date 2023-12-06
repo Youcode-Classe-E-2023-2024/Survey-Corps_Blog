@@ -8,7 +8,7 @@ CREATE TABLE Articles (
     FOREIGN KEY (id_user) REFERENCES Utilisateurs(id_user)
 
 );
-/*----------------*/
+/*--------------------------------------------*/
 
 
 CREATE TABLE Utilisateurs (
