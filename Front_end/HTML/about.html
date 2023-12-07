@@ -180,7 +180,7 @@
                         }
                         .texte h3{
                             font-weight: 500;
-                            color: #ffa500;
+                            color: #000000;
                                 
 
                         }
@@ -193,7 +193,7 @@
                         .ContactForm h2{
                             display: flex;
                             font-size: 30px;
-                            color: #ffa500;
+                            color: #113251;
                             font-weight: 500;
                             justify-content: center;    
                         }
@@ -234,15 +234,13 @@
                         }
                         .inputBox .Send{
                             width: 100px;
-                            background: #ffa500;
+                            background: #113251;
                             border: none;
                             cursor: pointer;
                             padding: 10px;
                             font-size: 18px;
-                        } 
+                        }
                         #supportSection {
-                            display: none;
-                            margin-top: 20px;
                             padding: 10px;
                             border: 1px solid #ccc;
                         }
@@ -308,7 +306,7 @@
                     </section>
                    
                     <!-- *********************************************** -->
-                    <section class="Contact" id="supportSection">
+                    <section class="Contact" id="supportSection" style="display: none;">
                         <div class="ContactContent">
                             <h2>Contact Us</h2>
                             <p>Please don't hesitate to reach out to us using the contact information provided below. We value your feedback and aim to
@@ -369,6 +367,12 @@
                                         <div class="inputBox"> 
                                             <input type="submit" class="Send" value="Send">
                                         </div>
+                                        <div class="inputBox"> 
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full" style="width: 100%;">
+                                               <a href="about.html">About Us</a>
+                                            </button>
+                                        </div>                  
+                                        
                                     </form>
                                 </div>
                         </div>
@@ -376,7 +380,6 @@
          </div>
      </div>  
      <div>
-   
      </div>
 
      <script>
@@ -384,8 +387,10 @@
         var contactMeButton = document.getElementById("contactMeButton");
         var supportSection = document.getElementById("supportSection");
         var aboutSection = document.getElementById('about-section');
-        // Add click event listener to the button
+
+        // // Add click event listener to the button
         contactMeButton.addEventListener("click", function() {
+
             // Toggle the visibility of the support section
             if (supportSection.style.display === "none") {
                 supportSection.style.display = "block";
