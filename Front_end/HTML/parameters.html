@@ -10,13 +10,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
+     <link rel="stylesheet" href="../../js/jequery.js">
      <title>Your Title</title>
  </head>
  <body>
      <div class="h-screen text-white flex items-center justify-center  relative">
          
          <!-- navbar  -->
-         <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
+         <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 fixed">
              <div class="h-full w-full">
                      <div class="w-full flex border-b-2 items-center h-20 p-2">
                          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b"/>
@@ -38,9 +39,62 @@
  
                  add you page content here 
                  -->
+                 <div id="container" class="w-auto">
+                    <div id="page" class="flex justify-center items-center w-lx h-12 bg-black">
+                        <h1 class=" text-white text-bold capitalize">Your announces</h1>
+                    </div>
+                </div>
+                <div class="m-12">
+                    <table id="myDataTable" class="display mt-12 capitalize">
+                        <thead>
+                          <tr>
+                            <th>title</th>
+                            <th>description</th>
+                            <th>category</th>
+                            <th>created at</th>
+                            <th>edit</th>
+                            <th>delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>evolution of sardin</td>
+                            <td>satdin evouing from tino fredreko</td>
+                            <td>science </td>
+                            <td>2023-21-09</td>
+                            <td>
+                                <a href="#"><i class="fad fa-user-pen"></i></a>
+                            </td>
+                            <td>
+                                <a href=""><i class="fa-solid fa-delete-left"></i></a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> How to blow you're nose right way</td>
+                            <td>blowing you're nose atsiw</td>
+                            <td>health</td>
+                            <td>2000-09-08</td>
+                            <td>
+                                <a href="#"><i class="fad fa-user-pen"></i></a>
+                            </td>
+                            <td>
+                                <a href=""><i class="fa-solid fa-delete-left"></i></a>
+                            </td>
+                          </tr>
+                          <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
          </div>
      </div>
      
  </body>
+ 
+                  
+ <script>
+    $(document).ready(function() {
+     $('#myDataTable').DataTable();
+    });
+</script>
  
  </html>
