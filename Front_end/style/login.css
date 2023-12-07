@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    background-image: url(../pics/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+form{
+    width: 70%;
+}
+.loger{
+    border-radius: 30% 30% 30% 30%;
+    left: 47%;
+    transition: 0.3s;
+}
+
+/* .loger:hover{
+    left: -15%;
+} */
+.loger .cont{
+    left: 15%;
+}
+/* .loger:hover .cont{
+    right:5% ;
+} */
+
+.signin1,.signin{
+    width: 50%;
+
+}
+@media (min-width:1080px) {
+    .flexer{
+        left: 8%;
+        top: 20%; 
+        margin: 30px 0  1;
+        width: 1000px;
+       
+     }
+}
+@media (max-width:1080px) {
+    #loger{
+        display: none;
+    }
+    form{
+        width: 100%;
+    }
+    body{
+        background-image: none;
+        background-color: rgb(230, 166, 230);
+    }
+    .flexer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        
+        width: 350px;
+        height:fit-content ;
+    }
+    
+    .signin1,.signin{
+        width: 90%;
+
+    }
+    .icons{
+        margin: 15px;
+    }
+    .marger {
+        margin: 15px;
+    }
+    #pader{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        position: absolute;
+        
+        
+        
+        top: 600px;
+    }
+}
+@media (max-width:477px) {
+    .pader{
+        display: none;
+    }
+}
