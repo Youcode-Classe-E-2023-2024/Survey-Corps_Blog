@@ -155,6 +155,7 @@ body {
 }
 .sider{
   display: flex;
+  position: fixed;
 }
 @media (max-width:650px) {
   .sider{
