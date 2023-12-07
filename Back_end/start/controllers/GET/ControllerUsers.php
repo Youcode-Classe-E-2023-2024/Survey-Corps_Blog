@@ -14,7 +14,7 @@ if(isset($this->autorisation) && $this->autorisation === 1){
   
   
       http_response_code(200);
-      echo json_encode($Users->selectWhere("Utilisateurs","id_user = {$this->others[0]}"));
+      echo json_encode($Users->selectWhere("*","Utilisateurs","id_user = {$this->others[0]}"));
   
   
   }

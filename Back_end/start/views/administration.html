@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Page</title>
+    <!-- Include DataTables CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <!-- User Table -->
+    <h2>User Table</h2>
+    <table id="userTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Role ID</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+    </table>
+
+    <!-- Article Table -->
+    <h2>Article Table</h2>
+    <table id="articleTable" border="1">
+        <thead>
+            <tr>
+                <th>Article ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody id="articleTableBody"></tbody>
+    </table>
+   <!-- Permissions Table -->
+<h2>Permissions Table</h2>
+<table id="permissionsTable" border="1">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Permissions</th>
+        </tr>
+    </thead>
+    <tbody id="permissionsTableBody"></tbody>
+</table>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/controllers/adminControler.php", true);
+    xhr.setRequestHeader("token", "code");
+    xhr.setRequestHeader("userid", 'x');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // Successful response
+                var data = JSON.parse(xhr.responseText);
+
+                // User Table
+                var userTableBody = document.getElementById('userTableBody');
+                data.users.forEach(function(user) {
+                    userTableBody.innerHTML += `<tr>
+                        <td>${user.id_user}</td>
+                        <td>${user.username}</td>
+                        <td>${user.Email}</td>
+                        <td>${user.MotDePasse}</td>
+                        <td>${user.id_role}</td>
+                    </tr>`;
+                });
+
+                // Article Table
+                var articleTableBody = document.getElementById('articleTableBody');
+                data.articles.forEach(function(article) {
+                    articleTableBody.innerHTML += `<tr>
+                        <td>${article.ArticleID}</td>
+                        <td>${article.Titre}</td>
+                        <td>${article.Contenu}</td>
+                        <td>${article.Date}</td>
+                        <td>${article.Heure}</td>
+                        <td>${article.id_user}</td>
+                    </tr>`;
+                });
+
+                // Permissions Table
+                var permissionsTableBody = document.getElementById('permissionsTableBody');
+
+                // Group permissions by user ID
+                var permissionsByUser = {};
+                data.permissions.forEach(function(permission) {
+                    if (!permissionsByUser[permission.id_user]) {
+                        permissionsByUser[permission.id_user] = [];
+                    }
+                    permissionsByUser[permission.id_user].push(permission.id_Permission);
+                });
+
+                // Display permissions in the table
+                for (var userId in permissionsByUser) {
+                    if (permissionsByUser.hasOwnProperty(userId)) {
+                        var permissions = permissionsByUser[userId];
+                        var permissionLabels = permissions.map(function(permissionId) {
+                            return getPermissionLabel(permissionId);
+                        }).filter(Boolean).join(', ');
+
+                        permissionsTableBody.innerHTML += `<tr>
+                            <td>${userId}</td>
+                            <td>${permissionLabels}</td>
+                        </tr>`;
+                    }
+                }
+
+                // Apply DataTables to the tables
+                $('#userTable').DataTable();
+                $('#articleTable').DataTable();
+                $('#permissionsTable').DataTable();
+            } else {
+                // Error handling
+                console.error('XHR error:', xhr.status, xhr.statusText);
+            }
+        }
+    };
+
+    xhr.send();
+
+    // Function to get permission label based on id_Permission
+    function getPermissionLabel(id_Permission) {
+        switch (id_Permission) {
+            case 1:
+                return "Can Add";
+            case 2:
+                return "Can Delete";
+            case 3:
+                return "Can Edit";
+            default:
+                return "";
+        }
+    }
+</script>
+</body>
+</html>

@@ -10,7 +10,14 @@ if($_SERVER['REQUEST_METHOD'] === "PUT"){
             var_dump($data);
             
             echo $this->senderid; // hna ghanzid check dyal permision 
-            $Anonce->Update("Articles", $data,"ArticleID = {$this->others[0]}");
+            $permissions =  $Anonce->selectWhere('id_Permission ',"affecter_user_permissions","id_user = {$this->senderid} AND id_Permission = 3");
+        
+            if($permissions){
+                $Anonce->Update("Articles", $data,"ArticleID = {$this->others[0]}");
+            }else{
+                echo "no permission for the modify";
+            }
+            
         } else {
             echo "Failed to decode JSON data";
         }

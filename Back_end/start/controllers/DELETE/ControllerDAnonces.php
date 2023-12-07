@@ -6,7 +6,14 @@ if($_SERVER['REQUEST_METHOD'] === "DELETE"){
      echo json_encode(["message" => "nothing specifiyed"]);
     }else{
         echo $this->senderid; // hna ghanzid check dyal permision 
-        $Anonce->delete("Articles","ArticleID = {$this->others[0]}");
+        $permissions =  $Anonce->selectWhere('id_Permission ',"affecter_user_permissions","id_user = {$this->senderid} AND id_Permission = 2");
+        
+        if($permissions){
+            $Anonce->delete("Articles","ArticleID = {$this->others[0]}");
+        }else{
+            echo "no permission for the delete";
+        }
+        
 
     }
 }else{

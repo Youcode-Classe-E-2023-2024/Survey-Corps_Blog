@@ -55,10 +55,10 @@ class DatabaseConnect
         return $result;
     }
 
-    public function selectWhere($table, $where) {
+    public function selectWhere($VALUES = '*',$table, $where) {
         try {
         $pdo = $this->getPdo();
-        $statement = $pdo->prepare("SELECT * FROM $table WHERE $where");
+        $statement = $pdo->prepare("SELECT $VALUES FROM $table WHERE $where");
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
        

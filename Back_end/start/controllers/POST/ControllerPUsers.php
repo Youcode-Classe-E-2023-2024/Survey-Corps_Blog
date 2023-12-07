@@ -6,7 +6,10 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         // add filter later
         var_dump($data);
         echo $this->senderid; // hna ghanzid check dyal permision 
-        $Users->Insert("Utilisateurs",$data);
+        
+        
+        
+
     } else {
         echo "Failed to decode JSON data";
     }
