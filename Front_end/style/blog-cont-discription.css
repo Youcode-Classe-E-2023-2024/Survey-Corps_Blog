@@ -1,4 +1,5 @@
 .parent{
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     margin-top: 70px;
@@ -29,4 +30,22 @@
     border: solid 2px rgb(205, 196, 196);
     margin: 40px;
     background-color: palevioletred;
+}
+@media (max-width:1200px) {
+    .moreblogs{
+        display: none;
+    }
+    .blog-content{
+        width: 100%;
+    }
+    .blog-header{
+        width: 100%;
+    }
+    .parent{
+        margin: 0;
+
+    }
+    footer{
+        margin-left: 60px;
+    }
 }
