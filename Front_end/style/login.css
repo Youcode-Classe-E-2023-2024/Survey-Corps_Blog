@@ -29,16 +29,19 @@ form{
 /* .loger:hover .cont{
     right:5% ;
 } */
-.flexer{
-   left: 5%;
-   top: 20%; 
-   margin: 30px 0  1;
-   width: 1000px;
-  
-}
+
 .signin1,.signin{
     width: 50%;
 
+}
+@media (min-width:1080px) {
+    .flexer{
+        left: 8%;
+        top: 20%; 
+        margin: 30px 0  1;
+        width: 1000px;
+       
+     }
 }
 @media (max-width:1080px) {
     #loger{
@@ -47,15 +50,16 @@ form{
     form{
         width: 100%;
     }
+    body{
+        background-image: none;
+        background-color: rgb(230, 166, 230);
+    }
     .flexer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 600px;
-        left: 50%;
-        transform: translate(-50% , -50%);
-        top: 50%;
-        left: 50%;
+        
         width: 350px;
         height:fit-content ;
     }
@@ -70,7 +74,21 @@ form{
     .marger {
         margin: 15px;
     }
+    #pader{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        position: absolute;
+        
+        
+        
+        top: 600px;
+    }
+}
+@media (max-width:477px) {
     .pader{
-        position: relative;
+        display: none;
     }
 }
