@@ -1,0 +1,30 @@
+.parent{
+    display: flex;
+    justify-content: space-between;
+}
+.blog-content{
+    margin-top:100px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 2000px;
+}
+.moreblogs{
+    width: 400px;
+    height: 100vh;
+    position:fixed;
+    right: 0;
+    border: solid 2px rgb(205, 196, 196);
+}
+.blog-header{
+    width:50%;
+    height: 300px;
+    background-color: gray;
+    border: solid 2px rgb(205, 196, 196);
+}
+.blog{
+    height:160px;
+    border: solid 2px rgb(205, 196, 196);
+    margin: 40px;
+}
