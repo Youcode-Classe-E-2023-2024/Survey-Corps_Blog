@@ -6,12 +6,10 @@
 
 body{
     position: relative;
-    height: fit-content;
-
-    background-image: url(../pics/shopping-bag-cart.jpg);
+    height: 100vh;
+    background-image: url(../pics/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 100px 0;
 }
 form{
     width: 70%;
