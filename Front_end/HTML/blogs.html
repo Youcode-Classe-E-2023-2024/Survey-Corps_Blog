@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
     <title>Your Title</title>
 </head>
 <body>
@@ -252,7 +253,9 @@
 
     // Check if the inputs are not empty
     if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
-      alert('Please fill in all fields');
+      Swal.fire({
+      title: "Please fill in all fields!",
+      });
       return;
     }
 
@@ -278,6 +281,11 @@
     imageInput.value = '';
     titleInput.value = '';
     descriptionInput.value = '';
+    Swal.fire({
+    title: "Good job!",
+    text: "You clicked the button!",
+    icon: "success"
+    });
     add_Blog();
   }
 
