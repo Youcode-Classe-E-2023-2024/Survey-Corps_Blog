@@ -86,21 +86,22 @@ function getDragAfterElement(container, y) {
       });
       return;
     }
+
     var requestData = {
-      "Titre": titleInput,
-      "Contenu": descriptionInput,
+      "Titre": imageInput.files,
+      "Contenu": descriptionInput.value,
       "id_user": 3
     };
-
+    console.log(requestData);
     // alert
     Swal.fire({
     title: "Good job!",
     text: "Your blog is added!",
     icon: "success"
     });
-    
+
     // HIDDEN THE FORM AFTER SAVE THE BLOG
-    add_Blog();
+    // add_Blog();
   }
 
   // Function to clear the form inputs
