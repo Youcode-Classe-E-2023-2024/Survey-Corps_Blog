@@ -62,6 +62,32 @@
                             .card {
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                             margin: 8px;
+                            position: relative;
+                            overflow: hidden;
+                            }
+                            .card img {
+                            width: 100%;
+                            height: auto;
+                            transition: filter 0.3s ease; 
+                            }
+
+                            .card:hover img {
+                            filter: blur(4px); 
+                            }
+
+                            .description {
+                            position: absolute;
+                            top: 40%;
+                            left: 40%;
+                            transform: translate(-50%, -50%);
+                            color: white;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                            text-align: center;
+                            }
+
+                            .card:hover .description {
+                            opacity: 1;
                             }
 
                             .about-section {
@@ -128,20 +154,24 @@
                             background: url("../Images/pic1.jpeg");
                             background-size: cover;
                             opacity: 80%;
-                        }
+                        } 
+
                         .ContactContent{
                             max-width: 800px;
                             text-align: center;
                         }
+
                         .ContactContent h2{
                             font-size: 36px;
                             font-weight: 500;
                             color: aliceblue;
                         }
+
                         .ContactContent p{
                             font-weight: 300;
                             color: aliceblue;
                         }
+
                         .container{
                             width: 100%;
                             display: flex;
@@ -149,17 +179,20 @@
                             align-items: center;
                             margin-top: 30px;
                         }
+
                         .ConatctInfo{
                             width: 50%;
                             display: flex;
                             flex-direction: column;
                         }
+
                         .Box{
                             position: relative;
                             padding: 20px 0;
                             display: flex;
                             color: aliceblue;
                         }
+
                         .Icon{
                             min-width: 60px;
                             height: 60px;
@@ -170,6 +203,7 @@
                             border-radius: 50%;
                             font-size: 22px;
                         }
+
                         .texte{
                             display: flex;
                             margin-left: 20px;
@@ -178,18 +212,19 @@
                             flex-direction: column;
                             font-weight: 300;
                         }
+
                         .texte h3{
                             font-weight: 500;
                             color: #000000;
-                                
-
                         }
+
                         .ContactForm{
                             width: 40%;
                             padding: 40px;
                             background-color: rgba(255, 255, 255, 0.274);
                             border-radius: 15px;
                         }
+
                         .ContactForm h2{
                             display: flex;
                             font-size: 30px;
@@ -197,11 +232,13 @@
                             font-weight: 500;
                             justify-content: center;    
                         }
+
                         .ContactForm .inputBox{
                             position: relative;
                             width: 100%;
                             margin-top: 10px;
                         }
+
                         .ContactForm .inputBox input,
                         .ContactForm .inputBox textarea{
                             width: 100%;
@@ -214,6 +251,7 @@
                             resize: none;
                             border-radius: 10px;
                         }
+
                         .ContactForm .inputBox span{
                             position: absolute;
                             left: 0;
@@ -224,6 +262,7 @@
                             transition: 0.5s;
                             color:#666;
                         }
+
                         .ContactForm .inputBox  input:focus ~ span,
                         .ContactForm .inputBox  input:valid ~ span,
                         .ContactForm .inputBox  textarea:focus ~ span,
@@ -232,6 +271,7 @@
                             font-size: 12px;
                             transform: translateY(-20px);
                         }
+
                         .inputBox .Send{
                             width: 100px;
                             background: #4A9DEC;
@@ -240,10 +280,12 @@
                             padding: 10px;
                             font-size: 18px;
                         }
+
                         #supportSection {
                             padding: 10px;
                             border: 1px solid #ccc;
                         }
+
                         @media (max-width:991px){
                             .Contact{
                                 padding: 50p;
@@ -258,50 +300,55 @@
                             .ContactForm{
                                 width: 100%;            
                             }
-                            }                    
+                            }   
+
                     </style>
                 </head>     
                 <body>
                     <section id="about-section">
-                      <div class="about-section">
-                        <h1>About Us Page</h1>
-                        <p>Welcome to our blog page, where knowledge meets inspiration!</p>
-                        <p>Dive into a world of compelling articles, thought-provoking insights, and expert opinions that aim to inform, entertain, and spark your curiosity. </p>
-                      </div>
-                      
-                      <h2 style="text-align:center">Our Team</h2>
-                      <div class="row">
-                        <div class="column">
-                          <div class="card">
-                            <img src="../Images/pic1.jpeg" alt="Jane" style="width:100%">
-                            <div class="container">
-                              <p class="title">CEO & Founder</p>
-                            </div>
-                          </div>
+                        <div class="about-section">
+                            <h1>About Us Page</h1>
+                            <p>Welcome to our blog page, where knowledge meets inspiration!</p>
+                            <p>Dive into a world of compelling articles, thought-provoking insights, and expert opinions that aim to inform, entertain, and spark your curiosity. </p>
                         </div>
                       
-                        <div class="column">
-                          <div class="card">
-                            <img src="../Images/pic3.jpeg" alt="Mike" style="width:100%">
-                            <div class="container">
-                              <p class="title">Cooking</p>
+                        <h2 style="text-align:center">Our Team</h2>
+                        <div class="row">
+                            <div class="column">
+                            <div class="card">
+                                <img src="../Images/pic1.jpeg" alt="Jane" style="width:100%">
+                                <div class="container">
+                                <p class="title">CEO & Founder</p>
+                                <div class="description">Bella Doe is the visionary leader and founder of our company. With a passion for innovation and a commitment to excellence, he has led our organization to new heights. With years of experience in the industry Bella brings a wealth of knowledge and a strategic mindset to drive the company's success</div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <div class="column">
-                          <div class="card">
-                            <img src="../Images/pic2.webp" alt="John" style="width:100%">
-                            <div class="container">
-                              <p class="title">Designs</p>
                             </div>
-                          </div>
+                      
+                            <div class="column">
+                            <div class="card">
+                                <img src="../Images/pic3.jpeg" alt="Mike" style="width:100%">
+                                <div class="container">
+                                <p class="title">Cooking</p>
+                                <div class="description">Explore the art of cooking in our culinary section, where flavors come to life and creativity knows no bounds. From savory dishes to sweet indulgences, our kitchen is a canvas for culinary magic. Whether you're a seasoned chef or a home cook, discover inspiration, recipes, and tips to elevate your cooking adventures to new heights.</div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="column">
+                            <div class="card">
+                                <img src="../Images/pic2.webp" alt="John" style="width:100%">
+                                <div class="container">
+                                <p class="title">Designs</p>
+                                <div class="description">Immerse yourself in our design sanctuary, where creativity knows no boundaries. From stunning visuals to innovative concepts, our design section is a celebration of artistry and craftsmanship. Uncover the latest trends, discover design techniques, and embark on a visual journey that transforms ideas into captivating masterpieces.</div>
+                                </div>
+                            </div>
+                            </div>    
+                                         
                         </div>
-                      </div>
-                      <div style="display: flex; justify-content: center;">
-                        <button id= "contactMeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full">
-                            Contact Us
-                        </button>
-                    </div>
+                        <div style="display: flex; justify-content: center;">
+                            <button id= "contactMeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full">
+                                Contact Us </button>
+                        </div>
                     </section>
                    
                     <!-- *********************************************** -->
@@ -380,17 +427,14 @@
      </div>  
      <div>
      </div>
-
+    <!-- ******************************************************************* -->
      <script>
-        // Get references to the button and support section
         var contactMeButton = document.getElementById("contactMeButton");
         var supportSection = document.getElementById("supportSection");
         var aboutSection = document.getElementById('about-section');
 
-        // // Add click event listener to the button
         contactMeButton.addEventListener("click", function() {
 
-            // Toggle the visibility of the support section
             if (supportSection.style.display === "none") {
                 supportSection.style.display = "block";
                 aboutSection.style.display = "none";
@@ -398,6 +442,7 @@
                 supportSection.style.display = "none";
             }
         });
+
     </script>
 
  </body>
