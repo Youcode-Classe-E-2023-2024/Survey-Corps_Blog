@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../style/login.css">
 
   <script src="https://kit.fontawesome.com/f2976792f3.js" crossorigin="anonymous"></script>
-    <title>Avito</title>
+  <title>Avito</title>
 </head>
 
 <body>
@@ -102,29 +102,33 @@
 
   <!-- the end of header section -->
   <div class="sider h-screen text-white flex items-center justify-center  relative">
-         
+
     <!-- navbar  -->
     <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
-        <div class="h-full w-full">
-                <div class="w-full flex border-b-2 items-center h-20 p-2">
-                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b"/>
-            </div>
-            <div class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 ">
-                
-                <img class="hover: hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy"/>
-                <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/joomla.png" alt="joomla"/>
-                <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/news.png" alt="news"/>
-                <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1"/>
-                <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1"/>
-            </div>
+      <div class="h-full w-full">
+        <div class="w-full flex border-b-2 items-center h-20 p-2">
+          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b" />
         </div>
-        
+        <div class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 ">
+
+          <img class="hover: hover:cursor-pointer w-full p-3" width="37" height="37"
+            src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy" />
+          <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37"
+            src="https://img.icons8.com/ios/37/joomla.png" alt="joomla" />
+          <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37"
+            src="https://img.icons8.com/ios/37/news.png" alt="news" />
+          <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37"
+            src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1" />
+          <img class="hover:bg-gray-800 hover:cursor-pointer w-full p-3" width="37" height="37"
+            src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1" />
+        </div>
+      </div>
+
     </div>
     <!-- content -->
     <div class="flex-1 pl-16 h-screen ">
       <main id="pader">
-        <div
-          class="flexer  min-h-[600px] flex justify-between rounded-[60px] absolute  overflow-hidden bg-white  z-2">
+        <div class="flexer  min-h-[600px] flex justify-between rounded-[60px] absolute  overflow-hidden bg-white  z-2">
           <div class="signin py-[5%] flex flex-col justify-evenly items-center ">
             <h1 class="font-bold text-[40px] pb-7 text-black ">SIGN IN</h1>
             <div class="icons flex w-[60%] justify-evenly">
@@ -133,38 +137,47 @@
               <i class="fa-brands fa-linkedin fa-2xl text-black"></i>
               <i class="fa-brands fa-youtube fa-2xl text-black"></i>
             </div>
-    
-    
+
+
             <p class="marger font-medium text-black">or use your Email and Password</p>
+
+            <!-- !!!!!!!!!!!!!!!!-->
+            <!-- !  Sign in Form-->
+
+
             <form class=" h-fit flex flex-col justify-center" id="form" action="index.html">
-              <input type="text" onkeydown="validation1()" id="email"  placeholder="Email"
-                class="border-b-2 w-[100%] outline-none text-black "required>
+              <input type="text" onkeydown="validation1()" id="email" placeholder="Email"
+                class="border-b-2 w-[100%] outline-none text-black " required>
               <span id="text"></span>
-    
-              <input type="password" placeholder="Password"  class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-    
-              <input type="submit"  value="Sign-In" href="index.html"  class=" font-bold my-5 mx-auto bg-sky-600  text-white px-16 py-3 rounded-[30px]">
+
+              <input type="password" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none"
+                required>
+
+              <input type="submit" value="Sign-In" href="index.html"
+                class=" font-bold my-5 mx-auto bg-sky-600  text-white px-16 py-3 rounded-[30px]">
             </form>
-    
-    
-            
-          
-    
+
+            <!-- !!!!!!!!!!!!!!!!-->
+
+
+
           </div>
-    
+
           <div id="loger" class="loger absolute py-36 h-[600px] w-[70%]  flex justify-evenly    bg-sky-500">
-    
+
             <div id="cont" class="cont absolute  flex flex-col justify-evenly items-center">
               <h1 class="font-bold mb-5 text-[45px] text-black">welcome, friend !</h1>
-              <p class="messageanas text-white mb-5 font-bold text-center text-[20px] w-fit">Register with your personel details to <br>
+              <p class="messageanas text-white mb-5 font-bold text-center text-[20px] w-fit">Register with your personel
+                details to <br>
                 use all of site features</p>
               <a id="registerButton" href="#"
                 class="font-bold bg-sky-600   border-[2px] border-white px-28 py-3 rounded-[30px] ">Sign Up</a>
-                <a id="resetButton" href="#"
-                class="font-bold bg-sky-950 m-5  border-[2px] border-white px-16 py-3 rounded-[30px] ">Forgot Password</a>
-            
-              </div>
-    
+              <a id="resetButton" href="#"
+                class="font-bold bg-sky-950 m-5  border-[2px] border-white px-16 py-3 rounded-[30px] ">Forgot
+                Password</a>
+
+            </div>
+
           </div>
           <div class="signin1 py-[5%] flex flex-col justify-evenly items-center ">
             <h1 class="font-bold text-center text-black w-[100%] text-[30px] pb-7">CREATE ACCOUNT</h1>
@@ -174,31 +187,35 @@
               <i class="fa-brands fa-linkedin text-black fa-2xl"></i>
               <i class="fa-brands fa-youtube text-black fa-2xl"></i>
             </div>
-    
-            
-    
+
+            <!-- !!!!!!!!!!!!!!!!-->
+            <!-- ! Create Acount Form-->
+
             <form class=" h-fit flex flex-col justify-center" id="form1" action="index.html">
-              <input type="text" placeholder="User Name"  class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-              <input type="email" onkeydown="validation()" id="email1"  placeholder="Email"
-                class="border-b-2 text-black w-[100%] text-black outline-none "required>
+              <input type="text" placeholder="User Name" class="border-b-2 text-black my-9 w-[100%] outline-none"
+                required>
+              <input type="email" onkeydown="validation()" id="email1" placeholder="Email"
+                class="border-b-2 text-black w-[100%] text-black outline-none " required>
               <span id="text1"></span>
-    
-              <input type="password" placeholder="Password"  class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-    
-              <input type="submit"  value="Sign-In" href="index.html"  class="font-bold text-black my-5 mx-auto bg-purple-300  text-white px-16 py-3 rounded-[30px]">
+
+              <input type="password" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none"
+                required>
+
+              <input type="submit" value="Sign-In" href="index.html"
+                class="font-bold text-black my-5 mx-auto bg-purple-300  text-white px-16 py-3 rounded-[30px]">
             </form>
-            
-    
-            
+
+            <!-- !!!!!!!!!!!!!!!!-->
+
           </div>
         </div>
       </main>
     </div>
-</div>
+  </div>
   <!-- this is the main section -->
 
 
-  
+
 
 
   <!-- the end of main section -->
