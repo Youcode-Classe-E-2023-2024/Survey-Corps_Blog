@@ -145,15 +145,15 @@
             <!-- !  Sign in Form-->
 
 
-            <form class=" h-fit flex flex-col justify-center" id="form" action="index.html">
+            <form class=" h-fit flex flex-col justify-center" id="form" >
               <input type="text" onkeydown="validation1()" id="email" placeholder="Email"
                 class="border-b-2 w-[100%] outline-none text-black " required>
               <span id="text"></span>
 
-              <input type="password" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none"
+              <input type="password" placeholder="password" class="border-b-2 text-black my-9 w-[100%] outline-none"
                 required>
 
-              <input type="submit" value="Sign-In" href="index.html"
+              <input type="submit" value="Sign-In" 
                 class=" font-bold my-5 mx-auto bg-sky-600  text-white px-16 py-3 rounded-[30px]">
             </form>
 
@@ -191,17 +191,17 @@
             <!-- !!!!!!!!!!!!!!!!-->
             <!-- ! Create Acount Form-->
 
-            <form class=" h-fit flex flex-col justify-center" id="form1" action="index.html">
-              <input type="text" placeholder="User Name" class="border-b-2 text-black my-9 w-[100%] outline-none"
-                required>
-              <input type="email" onkeydown="validation()" id="email1" placeholder="Email"
+            <form class=" h-fit flex flex-col justify-center" id="registrationForm" >
+              <input type="text" id="username" placeholder="User Name"
+                class="border-b-2 text-black my-9 w-[100%] outline-none" required>
+              <input type="email" onkeydown="validation()" id="email" placeholder="Email"
                 class="border-b-2 text-black w-[100%] text-black outline-none " required>
               <span id="text1"></span>
 
-              <input type="password" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none"
+              <input type="password" placeholder="password" class="border-b-2 text-black my-9 w-[100%] outline-none"
                 required>
 
-              <input type="submit" value="Sign-In" href="index.html"
+              <input type="submit" value="Sign-In" 
                 class="font-bold text-black my-5 mx-auto bg-purple-300  text-white px-16 py-3 rounded-[30px]">
             </form>
 
@@ -226,6 +226,43 @@
 
   <!-- the end of footer section -->
 
+  <!--! Form script-->
+  <script>
+   $(document).ready(function () {
+    $("#registrationForm").submit(function (event) {
+        event.preventDefault();
+        var requestData = {
+            "username": $("#username").val(),
+            "Email": $("#email").val(),
+            "MotDePasse": $("#password").val(),
+            "id_role": $("#role").val()
+        };
+
+        // Log the requestData object to the console
+        console.log("Request Data:", requestData);
+
+        // Your AJAX request code can go here
+        $.ajax({
+            type: "POST",
+            url: "/your-server-endpoint",
+            data: requestData,
+            success: function (response) {
+                console.log("Registration successful: ", response);
+                // Handle success response from the server
+            },
+            error: function (error) {
+                console.error("Error during registration: ", error);
+                // Handle error response from the server
+            }
+        });
+    });
+});
+
+  </script>
+  <!--! Form script-->
+
+
+
   <script type="text/javascript">
     function validation1() {
       var form = document.getElementById("form");
@@ -249,8 +286,8 @@
       }
     }
     function validation() {
-      var form = document.getElementById("form1");
-      var email = document.getElementById("email1").value;
+      var form = document.getElementById("registrationForm");
+      var email = document.getElementById("email").value;
       var text = document.getElementById("text1");
       var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
