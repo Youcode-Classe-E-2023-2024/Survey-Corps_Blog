@@ -48,3 +48,64 @@ editBtn.forEach(btn => {
 btn.addEventListener('click', Edit);
 });
 
+/**
+ * getting blogs
+ */
+
+function fetchDataAndAppendToTable() {
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: formData
+    })
+    .then(response => response.text())
+    .then(dataString => {
+      console.log('Success:', dataString);
+
+      const tableBody = document.querySelector('table');
+
+      // Append the received data string as a row
+      tableBody.insertAdjacentHTML('beforeend', dataString);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  document.addEventListener('load', fetchDataAndAppendToTable);
+
+/**
+ * send new data
+ */
+function sendData() {
+    const newTitle = document.getElementById('editedTitle');
+    const newDescription = document.getElementById('editedDescription');
+    var url = '';
+    var data = {
+      title: newTitle,
+      description: newDescription
+    };
+  
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Data sent successfully!');
+      // Handle the response if needed
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle errors
+    });
+    location.reload;
+  }
+  
+  const editForm = document.getElementById('editForm');
+  editForm.addEventListener('submit', sendData);
