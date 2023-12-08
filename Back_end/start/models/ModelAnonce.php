@@ -1,7 +1,7 @@
 <?php
 include "C:/xampp/htdocs/Survey-Corps_Blog/Back_end/backwork/Dataopp.php";
 
-$Anonce = new DatabaseConnect('phpframe', 'localhost', 'root', '');
+$Anonce = new DatabaseConnect('phpframe1', 'localhost', 'root', '');
 
 
 $Anonce->CreateTable("CREATE TABLE IF NOT EXISTS Articles (

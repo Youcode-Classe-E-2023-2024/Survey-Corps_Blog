@@ -1,7 +1,7 @@
 <?php
 include "C:/xampp/htdocs/Survey-Corps_Blog/Back_end/backwork/Dataopp.php";
 
-$Users = new DatabaseConnect('phpframe', 'localhost', 'root', '');
+$Users = new DatabaseConnect('phpframe1', 'localhost', 'root', '');
 
 $Users->CreateTable("CREATE TABLE IF NOT EXISTS roles (
     id_role INT AUTO_INCREMENT PRIMARY KEY,
