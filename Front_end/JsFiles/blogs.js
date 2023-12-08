@@ -93,6 +93,32 @@ function getDragAfterElement(container, y) {
       "id_user": 3
     };
     console.log(requestData);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/PAnonces", true);
+    xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+    xhr.setRequestHeader("token", "code");
+    xhr.setRequestHeader("userid", "1");
+    
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // Successful response
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+            } else {
+                // Error handling
+                console.error('XHR error:', xhr.status, xhr.statusText);
+            }
+        }
+    };
+    
+    var requestData = {
+        "Titre": titleInput.value,
+        "Contenu": descriptionInput.value,
+        "id_user": 1
+    };
+    
+    xhr.send(JSON.stringify(requestData))
     // alert
     Swal.fire({
     title: "Good job!",
