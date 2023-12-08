@@ -81,7 +81,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 	/*bg-indigo-500*/
 }
 
-@media (max-width:380px) {
+@media (max-width:572px) {
     #bar{
         display: none;
     }
