@@ -62,6 +62,31 @@
                             .card {
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                             margin: 8px;
+                            position: relative;
+                            overflow: hidden;
+                            }
+                            .card img {
+                            width: 100%;
+                            height: auto;
+                            transition: filter 0.3s ease; 
+                            }
+
+                            .card:hover img {
+                            filter: blur(4px); 
+                            }
+
+                            .description {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            color: white; 
+                            opacity: 0; 
+                            transition: opacity 0.3s ease; 
+                            }
+
+                            .card:hover .description {
+                            opacity: 1;
                             }
 
                             .about-section {
@@ -275,7 +300,7 @@
                                 width: 100%;            
                             }
                             }   
-                                             
+
                     </style>
                 </head>     
                 <body>
@@ -293,6 +318,7 @@
                                 <img src="../Images/pic1.jpeg" alt="Jane" style="width:100%">
                                 <div class="container">
                                 <p class="title">CEO & Founder</p>
+                                <div class="description">John Doe is the visionary leader and founder of our company. With a passion for innovation and a commitment to excellence, he has led our organization to new heights. With years of experience in the industry, John brings a wealth of knowledge and a strategic mindset to drive the company's success.</div>
                                 </div>
                             </div>
                             </div>
@@ -302,6 +328,7 @@
                                 <img src="../Images/pic3.jpeg" alt="Mike" style="width:100%">
                                 <div class="container">
                                 <p class="title">Cooking</p>
+                                <div class="description">Description for Card 1</div>
                                 </div>
                             </div>
                             </div>
@@ -311,6 +338,7 @@
                                 <img src="../Images/pic2.webp" alt="John" style="width:100%">
                                 <div class="container">
                                 <p class="title">Designs</p>
+                                <div class="description">Description for Card 1</div>
                                 </div>
                             </div>
                             </div>    
