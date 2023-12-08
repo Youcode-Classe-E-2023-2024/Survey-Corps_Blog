@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Page</title>
+    <title>Admin Dashboard</title>
     <!-- Include DataTables CSS and JS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 </head>
-<body>
-    <!-- User Table -->
-    <h2>User Table</h2>
-    <table id="userTable" border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role ID</th>
-            </tr>
-        </thead>
-        <tbody id="userTableBody"></tbody>
-    </table>
 
-    <!-- Article Table -->
-    <h2>Article Table</h2>
-    <table id="articleTable" border="1">
-        <thead>
-            <tr>
-                <th>Article ID</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>User ID</th>
-            </tr>
-        </thead>
-        <tbody id="articleTableBody"></tbody>
-    </table>
-   <!-- Permissions Table -->
-<h2>Permissions Table</h2>
-<table id="permissionsTable" border="1">
-    <thead>
-        <tr>
-            <th>User ID</th>
-            <th>Permissions</th>
-        </tr>
-    </thead>
-    <tbody id="permissionsTableBody"></tbody>
-</table>
+<body class="font-sans leading-normal tracking-normal bg-gray-100">
+
+    <div class="container mx-auto my-10 p-4 bg-white rounded shadow-lg">
+        <h2 class="text-3xl font-semibold mb-6">User Table</h2>
+        <table id="userTable" class="w-full border rounded">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2">ID</th>
+                    <th class="border px-4 py-2">Username</th>
+                    <th class="border px-4 py-2">Email</th>
+                    <th class="border px-4 py-2">Password</th>
+                    <th class="border px-4 py-2">Role ID</th>
+                    <th class="border px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="container mx-auto my-10 p-4 bg-white rounded shadow-lg">
+        <h2 class="text-3xl font-semibold mb-6">Article Table</h2>
+        <table id="articleTable" class="w-full border rounded">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2">Article ID</th>
+                    <th class="border px-4 py-2">Title</th>
+                    <th class="border px-4 py-2">Content</th>
+                    <th class="border px-4 py-2">Date</th>
+                    <th class="border px-4 py-2">Time</th>
+                    <th class="border px-4 py-2">User ID</th>
+                    <th class="border px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="articleTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="container mx-auto my-10 p-4 bg-white rounded shadow-lg">
+        <h2 class="text-3xl font-semibold mb-6">Permissions Table</h2>
+        <table id="permissionsTable" class="w-full border rounded">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2">User ID</th>
+                    <th class="border px-4 py-2">Permissions</th>
+                </tr>
+            </thead>
+            <tbody id="permissionsTableBody"></tbody>
+        </table>
+    </div>
+
+
 
 <script>
+    var id = 19;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/controllers/adminControler.php", true);
     xhr.setRequestHeader("token", "code");
@@ -72,6 +86,7 @@
                         <td>${user.Email}</td>
                         <td>${user.MotDePasse}</td>
                         <td>${user.id_role}</td>
+                        <td><button onclick="buttonclicked(this, 'user')" class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" key="${user.id_user}">DELETE</button></td>
                     </tr>`;
                 });
 
@@ -85,6 +100,7 @@
                         <td>${article.Date}</td>
                         <td>${article.Heure}</td>
                         <td>${article.id_user}</td>
+                        <td><button onclick="buttonclicked(this, 'article')" class=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" key="${article.ArticleID}">DELETE</button></td>
                     </tr>`;
                 });
 
@@ -99,7 +115,7 @@
                     }
                     permissionsByUser[permission.id_user].push(permission.id_Permission);
                 });
-
+                
                 // Display permissions in the table
                 for (var userId in permissionsByUser) {
                     if (permissionsByUser.hasOwnProperty(userId)) {
@@ -107,11 +123,13 @@
                         var permissionLabels = permissions.map(function(permissionId) {
                             return getPermissionLabel(permissionId);
                         }).filter(Boolean).join(', ');
-
+                       
                         permissionsTableBody.innerHTML += `<tr>
                             <td>${userId}</td>
-                            <td>${permissionLabels}</td>
+                            <td key="${userId}" class="flex gap-3">${permissionLabels}</td>
                         </tr>`;
+                    }else{
+                        
                     }
                 }
 
@@ -127,20 +145,256 @@
     };
 
     xhr.send();
-
+    
+    var switchdiv= `<div onclick="idchecked(this)" "`+ '  class="checkbox-wrapper-55"><label class="rocker rocker-small"><input type="checkbox"><span class="switch-left">Yes</span><span class="switch-right">No</span></label></div></div>';
     // Function to get permission label based on id_Permission
     function getPermissionLabel(id_Permission) {
         switch (id_Permission) {
             case 1:
-                return "Can Add";
+                return'<div key="1">can add' + switchdiv ;
             case 2:
-                return "Can Delete";
+                return '<div key="2">can delete' + switchdiv;
             case 3:
-                return "Can Edit";
+                return '<div key="3">can edit' + switchdiv;
             default:
                 return "";
         }
+        
     }
+
+    function buttonclicked(element,typeo){
+        var keyValue = element.getAttribute('key');
+        console.log(typeo)
+    var xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "http://localhost/Survey-Corps_Blog/Back_end/start/controllers/admindel.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('XHR error:', xhr.status, xhr.statusText);
+        }
+    }
+};
+
+var DEL= {
+    "id_user": keyValue,
+    "id_Permission":typeo
+};
+
+xhr.send(JSON.stringify(DEL))
+    }
+    function check() {
+    var checkboxes = document.querySelectorAll('.checkbox-wrapper-55 input');
+    console.log(checkboxes.length);
+
+    checkboxes.forEach(element => {
+        element.checked = !element.checked;
+    });
+    
+    
+}
+
+var i = 0; 
+
+function idchecked(element) {
+    var x = element.querySelector('input');
+    console.log("permtype: " + parentElement?.getAttribute('key'));
+    console.log("userid: " + parentElement?.parentNode?.getAttribute('key'));
+
+    if (x.checked && i === 0) {
+        console.log('ah');
+        i = 1;
+        swapperms(arentElement?.getAttribute('key'),parentElement?.parentNode?.getAttribute('key'));
+    } else if (x.checked === false && i === 1) {
+        // swapperms(arentElement?.getAttribute('key'),parentElement?.parentNode?.getAttribute('key'));
+        console.log('la');
+        i = 0;
+    }
+
+    var parentElement = element.parentNode;
+
+
+    
+}
+function swapperms(userid,articleid){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost/Survey-Corps_Blog/Back_end/start/controllers/PermissionsController.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+            // Successful response
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('XHR error:', xhr.status, xhr.statusText);
+        }
+    }
+};
+
+var requestData = {
+    "id_user": userid,
+    "id_Permission": articleid,
+};
+
+xhr.send(JSON.stringify(requestData))
+}
 </script>
+
+<style>
+    .checkbox-wrapper-55 input[type="checkbox"] {
+      visibility: hidden;
+      display: none;
+    }
+  
+    .checkbox-wrapper-55 *,
+    .checkbox-wrapper-55 ::after,
+    .checkbox-wrapper-55 ::before {
+      box-sizing: border-box;
+    }
+  
+    .checkbox-wrapper-55 .rocker {
+      display: inline-block;
+      position: relative;
+      /*
+      SIZE OF SWITCH
+      ==============
+      All sizes are in em - therefore
+      changing the font-size here
+      will change the size of the switch.
+      See .rocker-small below as example.
+      */
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: #888;
+      width: 7em;
+      height: 4em;
+      overflow: hidden;
+      border-bottom: 0.5em solid #eee;
+    }
+  
+    .checkbox-wrapper-55 .rocker-small {
+      font-size: 0.75em;
+    }
+  
+    .checkbox-wrapper-55 .rocker::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #999;
+      border: 0.5em solid #eee;
+      border-bottom: 0;
+    }
+  
+    .checkbox-wrapper-55 .switch-left,
+    .checkbox-wrapper-55 .switch-right {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5em;
+      width: 3em;
+      transition: 0.2s;
+      user-select: none;
+    }
+  
+    .checkbox-wrapper-55 .switch-left {
+      height: 2.4em;
+      width: 2.75em;
+      left: 0.85em;
+      bottom: 0.4em;
+      background-color: #ddd;
+      transform: rotate(15deg) skewX(15deg);
+    }
+  
+    .checkbox-wrapper-55 .switch-right {
+      right: 0.5em;
+      bottom: 0;
+      background-color: #bd5757;
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 .switch-left::before,
+    .checkbox-wrapper-55 .switch-right::before {
+      content: "";
+      position: absolute;
+      width: 0.4em;
+      height: 2.45em;
+      bottom: -0.45em;
+      background-color: #ccc;
+      transform: skewY(-65deg);
+    }
+  
+    .checkbox-wrapper-55 .switch-left::before {
+      left: -0.4em;
+    }
+  
+    .checkbox-wrapper-55 .switch-right::before {
+      right: -0.375em;
+      background-color: transparent;
+      transform: skewY(65deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left {
+      background-color: #0084d0;
+      color: #fff;
+      bottom: 0px;
+      left: 0.5em;
+      height: 2.5em;
+      width: 3em;
+      transform: rotate(0deg) skewX(0deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left::before {
+      background-color: transparent;
+      width: 3.0833em;
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left + .switch-right {
+      background-color: #ddd;
+      color: #888;
+      bottom: 0.4em;
+      right: 0.8em;
+      height: 2.4em;
+      width: 2.75em;
+      transform: rotate(-15deg) skewX(-15deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left + .switch-right::before {
+      background-color: #ccc;
+    }
+  
+    /* Keyboard Users */
+    .checkbox-wrapper-55 input:focus + .switch-left {
+      color: #333;
+    }
+  
+    .checkbox-wrapper-55 input:checked:focus + .switch-left {
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 input:focus + .switch-left + .switch-right {
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 input:checked:focus + .switch-left + .switch-right {
+      color: #333;
+    }
+  </style>
+  
 </body>
 </html>
+  

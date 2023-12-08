@@ -262,3 +262,30 @@ function uploadFile() {
             xhr.send(formData);
         }
   -->
+  get photos
+  <!-- 
+  var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/storage/Capture d'écran 2023-10-03 111341.png", true);
+        xhr.responseType = "blob"; 
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+
+                    var blob = xhr.response;
+                    var imageUrl = URL.createObjectURL(blob);
+
+                    var imageContainer = document.getElementById('imageContainer');
+                    var imageElement = document.createElement('img');
+                    imageElement.src = imageUrl;
+                    imageElement.alt = 'Fetched Image';
+                    imageContainer.appendChild(imageElement);
+                } else {
+                    // Error handling
+                    console.error('XHR error:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+
+        xhr.send();
+   -->
