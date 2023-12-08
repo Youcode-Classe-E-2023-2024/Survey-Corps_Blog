@@ -7,9 +7,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){;
         var_dump($data);
         echo $this->senderid; // hna ghanzid check dyal permision 
         
-66-mise-a-jour-multi-ajoute
+
         $Users->Insert("Utilisateurs",$data);
- main
+
         
 
     } else {
