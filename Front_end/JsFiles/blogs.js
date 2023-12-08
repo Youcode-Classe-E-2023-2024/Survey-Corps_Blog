@@ -88,7 +88,7 @@ function getDragAfterElement(container, y) {
     }
 
     var requestData = {
-      "Titre": imageInput.files,
+      "Titre": titleInput.value,
       "Contenu": descriptionInput.value,
       "id_user": 3
     };
