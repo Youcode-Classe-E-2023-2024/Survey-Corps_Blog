@@ -126,6 +126,10 @@
     $(document).ready(function() {
      $('#myDataTable').DataTable();
     });
+    const bord = document.getElementById("bord");
+    bord.addEventListener('mouseover', function() {
+        bord.classList.add("bg-blue-100");
+    })
 </script>
  </body>
  
