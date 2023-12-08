@@ -26,68 +26,75 @@
 
     <!-- Include FontAwesome-->
     <script src="https://kit.fontawesome.com/33a7b9a64c.js" crossorigin="anonymous"></script>
+
+    <!-- Css File-->
+    <link rel="stylesheet" href="../style/parameters.css">
+
      <title>Your Title</title>
+    
  </head>
  <body>
     <div class="h-screen text-white flex items-center justify-center  relative">
          
-         <!-- navbar  -->
-         <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 fixed">
-             <div class="h-full w-full">
+         <!-- navbar  --> 
+         <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 fixed sm:flex-col sm-bottom-0" id="bar">
+            <div class="h-full w-full">
                 <div class="w-full flex border-b-2 items-center h-20 p-2">
-                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b"/>
+                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b" />
                 </div>
-                <div class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 ">
-                     <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy"/>
-                     <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/joomla.png" alt="joomla"/>
-                     <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/news.png" alt="news"/>
-                     <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1"/>
-                     <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1"/>
-                 </div>
-             </div>
-             
-         </div>
+                <div
+                    class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 sm:w-full">
+                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+                        src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy" />
+                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+                        src="https://img.icons8.com/ios/37/joomla.png" alt="joomla" />
+                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+                        src="https://img.icons8.com/ios/37/news.png" alt="news" />
+                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+                        src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1" />
+                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+                        src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1" />
+                </div>
+            </div>
+        </div>
          <!-- content -->
          <div class="flex gap-12">
-         <div class="flex-1 pl-16 h-screen hidden" id="blogsTable">
+         <div class="flex-1 pl-16 h-screen md:w-3/4 xl:w-4/5" id="blogsTable">
                 <!-- 
  
                  add you page content here 
                  -->
-                <div id="container" class="w-auto">
-                    <div id="page" class="flex justify-center items-center w-lx h-12 bg-black">
+                <div id="container" class="w-auto sm-w-12 sm-ml-12">
+                    <div id="page" class="flex justify-center items-center w-lx h-12 bg-black sm-bg-white">
                         <h1 class="w-auto text-white text-bold capitalize">Your announces</h1>
                     </div>
                 </div>
-                <div class="m-12 text-black flex-col">
-                    <table id="myDataTable" class="display" class="mt-12 capitalize">
+                <div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white text-black">
+                    <table id="myDataTable" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <thead>
-                          <tr>
-                            <th>title</th>
-                            <th>description</th>
-                            <th>category</th>
-                            <th>created at</th>
-                            <th>edit</th>
-                            <th>delete</th>
-                          </tr>
+                            <tr>
+                                <th data-priority="1">title</th>
+                                <th data-priority="2">description</th>
+                                <th data-priority="3">created at</th>
+                                <th data-priority="4">edit</th>
+                                <th data-priority="5">delete</th>
+                            </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <td>evolution of sardin</td>
                             <td>satdin evouing from tino fredreko</td>
-                            <td>science </td>
                             <td>2023-21-09</td>
                             <td>
-                                <a href="#"> edit <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
                             </td>
                             <td>
-                                <a href="#">delete <i class="fa-solid fa-delete-left"></i></a>
+                                <a href="#">delete <i class="fa-solid fa-delete-left" edit-btn></i></a>
                             </td>
                           </tr>
                           <tr>
                             <td> How to blow you're nose right way</td>
                             <td>blowing you're nose atsiw</td>
-                            <td>health</td>
                             <td>2000-09-08</td>
                             <td>
                                 <a href="#"> edit <i class="fa-solid fa-pen-to-square"></i></a>
@@ -101,7 +108,7 @@
                     </table>
                 </div>
     </div>
-    <div class="container mx-auto flex-col px-4 lg:px-20 " id="editPopUpContainer">
+    <div class="container mx-auto flex-col px-4 lg:px-20 hidden" id="editPopUpContainer">
         <form action="parameters.html" method="post" id="editForm">
 		<div class="w-full m-10 p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl text-black" id="bord">
 			<div class="flex">
@@ -124,6 +131,26 @@
     </form>
 	</div>
     </div>
+
+    <footer class="justify-between absolute bottom-0 w-auto bg-white p-2 border-2 rounded" style="display: flex; flex-direction: row; left: 34%;">
+        <div class="flex flex-row" >
+          <div class="flex-col border-b-2 p-2">
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b" />
+          </div>
+          <div class="flex-row flex h-16">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy" />
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/joomla.png" alt="joomla" />
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/news.png" alt="news" />
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1" />
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1" />
+          </div>
+        </div>
+    </footer>
 <script src="../JsFiles/parameters.js"></script>
  </body>
  
