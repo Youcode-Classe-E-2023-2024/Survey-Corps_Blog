@@ -80,3 +80,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 	background-color: #667eea !important;
 	/*bg-indigo-500*/
 }
+
+@media (max-width:380px) {
+    #bar{
+        display: none;
+    }
+
+}
