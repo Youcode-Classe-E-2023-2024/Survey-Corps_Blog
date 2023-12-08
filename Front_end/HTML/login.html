@@ -76,17 +76,14 @@
             <!-- !  Sign in Form-->
 
 
-            <form class=" h-fit flex flex-col justify-center" id="form" >
-              <input type="text" onkeydown="validation1()" id="email" placeholder="Email"
-                class="border-b-2 w-[100%] outline-none text-black " required>
+            <form class="h-fit flex flex-col justify-center" id="form">
+              <input type="text" onkeydown="validation1()" id="email" placeholder="Email" class="border-b-2 w-[100%] outline-none text-black" required>
               <span id="text"></span>
-
-              <input type="password" placeholder="password" class="border-b-2 text-black my-9 w-[100%] outline-none"
-                required>
-
-              <input type="submit" value="Sign-In" 
-                class=" font-bold my-5 mx-auto bg-sky-600  text-white px-16 py-3 rounded-[30px]">
-            </form>
+          
+              <input type="password" id="password" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none" required>
+          
+              <input type="submit" value="Sign-In" onclick="submitForm(event)" class="font-bold my-5 mx-auto bg-sky-600 text-white px-16 py-3 rounded-[30px]">
+          </form>
 
             <!-- !!!!!!!!!!!!!!!!-->
 
@@ -122,19 +119,15 @@
             <!-- !!!!!!!!!!!!!!!!-->
             <!-- ! Create Acount Form-->
 
-            <form class=" h-fit flex flex-col justify-center" id="registrationForm" >
-              <input type="text" id="username" placeholder="User Name"
-                class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-              <input type="email" onkeydown="validation()" id="email" placeholder="Email"
-                class="border-b-2 text-black w-[100%] text-black outline-none " required>
+            <form class="h-fit flex flex-col justify-center" id="registrationForm">
+              <input type="text" id="username" placeholder="User Name" class="border-b-2 text-black my-9 w-[100%] outline-none" required>
+              <input type="email" onkeydown="validation()" id="emailr" placeholder="Email" class="border-b-2 text-black w-[100%] text-black outline-none" required>
               <span id="text1"></span>
-
-              <input type="password" placeholder="password" class="border-b-2 text-black my-9 w-[100%] outline-none"
-                required>
-
-              <input type="submit" value="Sign-In" 
-                class="font-bold text-black my-5 mx-auto bg-purple-300  text-white px-16 py-3 rounded-[30px]">
-            </form>
+          
+              <input type="password" id="registrationPassword" placeholder="Password" class="border-b-2 text-black my-9 w-[100%] outline-none" required>
+          
+              <input type="submit" value="Sign-Up" onclick="submitRegistrationForm(event)" class="font-bold text-black my-5 mx-auto bg-purple-300 text-white px-16 py-3 rounded-[30px]">
+          </form>
 
             <!-- !!!!!!!!!!!!!!!!-->
 
@@ -145,8 +138,70 @@
   </div>
   <!-- this is the main section -->
 
+  <script>
+    function submitForm(event) {
+        // Get input values
+        event.preventDefault();
+        var emailsi = document.getElementById('email').value;
+        var passwordsi = document.getElementById('password').value;
+
+        // Do something with the values (you can console.log or send to server)
+        console.log('Email:', emailsi);
+        console.log('Password:', passwordsi);
+
+        // You can add further logic or send the data to a server using AJAX, fetch, etc.
+    }
 
 
+    function submitRegistrationForm(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Get input values
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('emailr').value;
+        var password = document.getElementById('registrationPassword').value;
+
+        // Do something with the values (you can console.log or send to server)
+        console.log('Username:', username);
+        console.log('Email:', email);
+        console.log('Password:', password);
+        var xhr = new XMLHttpRequest();
+xhr.open("POST", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/Pusers", true);
+xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+xhr.setRequestHeader("token", "code");
+xhr.setRequestHeader("userid", "1");
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+            // Successful response
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('XHR error:', xhr.status, xhr.statusText);
+        }
+    }
+};
+
+var requestData = {
+    "username": username,
+    "Email":  email,
+    "MotDePasse": password,
+    "id_role": "2"
+};
+
+xhr.send(JSON.stringify(requestData));
+
+    }
+
+    function validation() {
+        // Add your validation logic here if needed
+    }
+
+
+</script>
 
 
   <!-- the end of main section -->
