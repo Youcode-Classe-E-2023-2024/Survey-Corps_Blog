@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
     <title>Your Title</title>
 </head>
 <body>
-    <div class="overflow-hidden h-screen text-white flex items-center justify-center  relative">
+    <div class=" h-screen text-white flex items-center justify-center  relative">
         
         <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
             <div class="h-full w-full">
@@ -35,7 +36,7 @@
                     <div class=" px-3 flex items-center h-full">
                         <input class="input" placeholder="text">
                     </div>
-                    <img width="35" height="35" src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/35/000000/external-plus-button-ui-anggara-basic-outline-anggara-putra.png" alt="external-plus-button-ui-anggara-basic-outline-anggara-putra"/>
+                    <img onclick="add_Blog()" id="add_blog" width="35" height="35" src="../Images/add-blog.png" class="hover:bg-gray-200 hover:cursor-pointer" alt="external-plus-button-ui-anggara-basic-outline-anggara-putra"/>
                     <div class="flex items-center justify-between w-fit gap-2 px-4">
 
                         <div class="bg-green-700 w-8 h-8 rounded-full"></div>
@@ -61,23 +62,103 @@
                           
                     </div>
                 </div>
+
+                
                 <div class="container h-full w-full grid grid-cols-3 gap-5 p-3">
-                    <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">1</div>
-                    <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">2</div>
-                    <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">3</div>
-                    <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">4</div>
-                    <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">5</div>
-                    <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">6</div>
-                    <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">7</div>
-                    <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">8</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">1</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">2</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">3</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">4</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">5</div>
+                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">6</div>
+                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">7</div>
+                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">8</div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
     
-</body>
-
-
+          <!-- FORM ADD MULTIPLE -->
+  
+          <div id="form_add_blog" class="hidden bg-gray-100 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5">
+            <div class="m-auto w-full">
+               <div>
+                  <button onclick="add_other_or_save_Blog()" type="button" class="relative w-full flex justify-center items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-900  focus:outline-none   transition duration-300 transform active:scale-95 ease-in-out">
+                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                           <rect fill="none" height="24" width="24"></rect>
+                        </g>
+                        <g>
+                           <g>
+                              <path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path>
+                           </g>
+                        </g>
+                     </svg>
+                     <span class="pl-2 mx-1">Add another blog</span>
+                  </button>
+                  <div class="mt-5 bg-white rounded-lg shadow">
+                     <div class="container bg-white p-8 shadow-md">
+  
+                      <form id="blogForm" class="flex flex-col">
+                  
+                          <div>
+                              <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover Photo</label>
+                              <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6">
+                                  <div class="text-center">
+                                      <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                          <label for="image"
+                                              class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                              <span>Upload a File</span>
+                                              <input id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
+                                          </label>
+                                          <p class="pl-1">or Drag and Drop</p>
+                                      </div>
+                                      <p class="mt-2 text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                                  </div>
+                              </div>
+                          </div>
+                  
+                          <label for="title" class="mt-6">Title:</label>
+                          <input type="text" id="title" required class="mt-2 border p-2">
+                  
+                          <label for="description" class="mt-4">Description:</label>
+                          <textarea id="description" required class="mt-2 border p-2 resize-y"></textarea>
+                      </form>
+                  </div>
+                  
+                    
+                     <hr class="mt-4">
+                     <div class="flex flex-row-reverse p-3">
+                        <div class="flex-initial pl-3">
+                           <button onclick="save_Blog()" type="button" class="flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                                 <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                 <path d="M5 5v14h14V7.83L16.17 5H5zm7 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-8H6V6h9v4z" opacity=".3"></path>
+                                 <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"></path>
+                              </svg>
+                              <span class="pl-2 mx-1">Save</span>
+                           </button>
+                        </div>
+                        <div class="flex-initial">
+                           <button onclick="clear_form()" type="button" class="flex items-center px-5 py-2.5 font-medium tracking-wide text-black capitalize rounded-md  hover:bg-red-200 hover:fill-current hover:text-red-600  focus:outline-none  transition duration-300 transform active:scale-95 ease-in-out">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                                 <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                 <path d="M8 9h8v10H8z" opacity=".3"></path>
+                                 <path d="M15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"></path>
+                              </svg>
+                              <span class="pl-2 mx-1">Clear</span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+  
+          <!-- END FORM -->
+        </body>
+        
+        
 
 
 
@@ -89,7 +170,7 @@
   height: 2.5em;
   padding-left: 0.8em;
   outline: none;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #F3F3F3;
   border-radius: 10px;
   transition: all 0.5s;
@@ -148,5 +229,75 @@
 }
 </style>
 <script src="../JsFILES/blogs.js"></script>
+<script>
+
+  // function to sho and hide the form for add_blog
+  function add_Blog() {
+    const add_blog = document.getElementById('add_blog');
+    const form_add_blog = document.getElementById('form_add_blog');
+
+        // Toggle the display of the form when the add_blog element is clicked
+        if (form_add_blog.style.display === 'flex') {
+            form_add_blog.style.display = 'none';
+        } else {
+            form_add_blog.style.display = 'flex';
+        }
+}
+
+
+  // Function to add a new blog
+  function add_other_or_save_Blog() {
+    const imageInput = document.getElementById('image');
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+
+    // Check if the inputs are not empty
+    if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
+      Swal.fire({
+      title: "Please fill in all fields!",
+      });
+      return;
+    }
+
+    // Clear the form inputs
+    imageInput.value = '';
+    titleInput.value = '';
+    descriptionInput.value = '';
+  }
+
+  // Function to save blog
+  function save_Blog() {
+    const imageInput = document.getElementById('image');
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+
+    // Check if the inputs are not empty
+    if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
+      Swal.fire({
+      title: "Please fill in all fields!",
+      });
+      return;
+    }
+    Swal.fire({
+    title: "Good job!",
+    text: "Your blog is added!",
+    icon: "success"
+    });
+    add_Blog();
+  }
+  // Function to clear the form inputs
+  function clear_form() {
+    const imageInput = document.getElementById('image');
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+
+    // Clear the form inputs
+    imageInput.value = '';
+    titleInput.value = '';
+    descriptionInput.value = '';
+    add_Blog();
+  }
+
+</script>
 </html>
 
