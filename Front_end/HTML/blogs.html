@@ -113,7 +113,7 @@
                               
                            </div> -->
 
-                           <div class="container bg-white p-8 shadow-md w-2/5" style="height: 80vh;">
+                           <div class="container bg-white p-8 shadow-md" style="height: 80vh;">
 
                             <form id="blogForm" class="flex flex-col">
                         
@@ -264,24 +264,24 @@
 </style>
 <script src="../JsFILES/blogs.js"></script>
 <script>
-                            // Function to add a new blog
-                            function addBlog() {
-                              const imageInput = document.getElementById('image');
-                              const titleInput = document.getElementById('title');
-                              const descriptionInput = document.getElementById('description');
-                        
-                              // Check if the inputs are not empty
-                              if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
-                                alert('Please fill in all fields');
-                                return;
-                              }
-                        
-                              // Clear the form inputs
-                              imageInput.value = '';
-                              titleInput.value = '';
-                              descriptionInput.value = '';
-                            }
-                        
-                          </script>
+  // Function to add a new blog
+  function addBlog() {
+    const imageInput = document.getElementById('image');
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+
+    // Check if the inputs are not empty
+    if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    // Clear the form inputs
+    imageInput.value = '';
+    titleInput.value = '';
+    descriptionInput.value = '';
+  }
+
+</script>
 </html>
 
