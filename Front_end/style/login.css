@@ -7,6 +7,7 @@
 body{
     position: relative;
     height: 100vh;
+    overflow: hidden;
     background-image: url(../Images/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -53,6 +54,7 @@ form{
     body{
         background-image: none;
         background-color: rgb(230, 166, 230);
+        overflow:visible;
     }
     .flexer{
         flex-direction: column;
