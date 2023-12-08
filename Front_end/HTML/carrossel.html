@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="../style/cssstyle.css" />
     <script src="tailwind.config.js"></script>
-    
-    <script src="../JsFiles/script.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://kit.fontawesome.com/25ff1b0eed.js" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 
@@ -21,7 +23,7 @@
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="images/avito-removebg-preview.png" class="h-8" alt="Flowbite Logo" />
+                <img src="../Images/avito-removebg-preview.png" class="h-8" alt="Avito Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AVITO</span>
             </a>
             <div class="flex md:order-2">
@@ -94,7 +96,7 @@
     
 
         <!-- sidebar  -->
-        <div class="sider h-screen  flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
+        <div class="sider h-screen  flex-wrap w-16 border-2 border-gray-300 left-0 ">
             <div class="h-full w-full">
                 <div class="w-full flex border-b-2 items-center h-20 p-2">
                     <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/b.png" alt="b" />
@@ -119,37 +121,49 @@
 
 
         <!--carrosel-->
-        <div class="parent">
-            <div class="container">
-                <div class="slider-wrapper">
-                    <button id="prev-slide" class="slide-button material-symbols-rounded">
-                        chevron_left
-                    </button>
+        <div class="max-w-3xl mx-auto">
 
-                    <ul class="image-list">
-                        <div class="fixer">
-                            <img class="image-item" src="../Images/zAgUJl.jpg" alt="img-1" />
-                        </div>
-
-                        <div class="fixer">
-                            <img class="image-item" src="../Images/zAgUJl.jpg" alt="img-2" />
-                        </div>
-
-
-
-
-
-                    </ul>
-                    <button id="next-slide" class="slide-button material-symbols-rounded">
-                        chevron_right
-                    </button>
-                </div>
-                <div class="slider-scrollbar">
-                    <div class="scrollbar-track">
-                        <div class="scrollbar-thumb"></div>
+            <div id="default-carousel" class="relative" data-carousel="static">
+             
+                <div class="overflow-hidden relative  rounded-lg h-60 sm:h-80 xl:h-80 2xl:h-96 ">
+                   
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl ">Primer Slide</span>
+                        <img src="../Images/shopping-bag-cart.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                    </div>
+                   
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../Images/shopping-bag-cart.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                    </div>
+                   
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../Images/shopping-bag-cart.jpg" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
                     </div>
                 </div>
+                
+                
+                <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                </div>
+               
+                <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30  group-focus:ring-4 group-focus:ring-white  group-focus:outline-none">
+                        <svg class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="hidden">Anterior</span>
+                    </span>
+                </button>
+                <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 0 group-focus:ring-4 group-focus:ring-white  group-focus:outline-none">
+                        <svg class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="hidden">Siguiente</span>
+                    </span>
+                </button>
             </div>
+        
+            
+            <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
         </div>
         <!--carrosel-->
 
@@ -172,41 +186,41 @@
                 </address>
                 <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful Web Business</h1>
             </header>
-            <p class="lead">Avito is an open-source library of UI components built with the utility-first
+            <p class="lead text-white">Avito is an open-source library of UI components built with the utility-first
                 classes from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
                 datepickers.</p>
-            <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+            <p class="lead text-white">Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
                 you can think things through before committing to an actual design project.</p>
-            <p>But then I found a <a href="https://flowbite.com">component library based on Tailwind CSS called
+            <p class="lead text-white">But then I found a <a href="https://flowbite.com">component library based on Tailwind CSS called
                     Flowbite</a>. It comes with the most commonly used UI components, such as buttons, navigation
                 bars, cards, form elements, and more which are conveniently built with the utility classes from
                 Tailwind CSS.</p>
             <figure><img src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png" alt="">
-                <figcaption>Digital art by Anonymous</figcaption>
+                <figcaption class="lead text-white">Digital art by Anonymous</figcaption>
             </figure>
             <h2>Getting started with Flowbite</h2>
-            <p>First of all you need to understand how Flowbite works. This library is not another framework.
+            <p class="lead text-white">First of all you need to understand how Flowbite works. This library is not another framework.
                 Rather, it is a set of components based on Tailwind CSS that you can just copy-paste from the
                 documentation.</p>
-            <p>It also includes a JavaScript file that enables interactive components, such as modals, dropdowns,
+            <p class="lead text-white">It also includes a JavaScript file that enables interactive components, such as modals, dropdowns,
                 and datepickers which you can optionally include into your project via CDN or NPM.</p>
-            <p>You can check out the <a href="https://flowbite.com/docs/getting-started/quickstart/">quickstart
+            <p class="lead text-white">You can check out the <a href="https://flowbite.com/docs/getting-started/quickstart/">quickstart
                     guide</a> to explore the elements by including the CDN files into your project. But if you want
                 to build a project with Flowbite I recommend you to follow the build tools steps so that you can
                 purge and minify the generated CSS.</p>
-            <p>You'll also receive a lot of useful application UI, marketing UI, and e-commerce pages that can help
+            <p class="lead text-white">You'll also receive a lot of useful application UI, marketing UI, and e-commerce pages that can help
                 you get started with your projects even faster. You can check out this <a
                     href="https://flowbite.com/docs/components/tables/">comparison table</a> to better understand
                 the differences between the open-source and pro version of Flowbite.</p>
-            <h2>When does design come in handy?</h2>
-            <p>While it might seem like extra work at a first glance, here are some key moments in which prototyping
+            <h2 class="lead text-white">When does design come in handy?</h2>
+            <p class="lead text-white">While it might seem like extra work at a first glance, here are some key moments in which prototyping
                 will come in handy:</p>
-            <ol>
-                <li><strong>Usability testing</strong>. Does your user know how to exit out of screens? Can they
+            <ol class="lead text-white">
+                <li class="lead text-white"><strong>Usability testing</strong>. Does your user know how to exit out of screens? Can they
                     follow your intended user journey and buy something from the site you’ve designed? By running a
                     usability test, you’ll be able to see how users will interact with your design once it’s live;
                 </li>
-                <li><strong>Involving stakeholders</strong>. Need to check if your GDPR consent boxes are displaying
+                <li class="lead text-white"><strong>Involving stakeholders</strong>. Need to check if your GDPR consent boxes are displaying
                     properly? Pass your prototype to your data protection team and they can test it for real;</li>
                 <li><strong>Impressing a client</strong>. Prototypes can help explain or even sell your idea by
                     providing your client with a hands-on experience;</li>
@@ -214,59 +228,59 @@
                     design elements, designers and developers can understand each other — and the project — better.
                 </li>
             </ol>
-            <h3>Laying the groundwork for best design</h3>
-            <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+            <h3 class="lead text-white">Laying the groundwork for best design</h3>
+            <p class="lead text-white">Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
                 you can think things through before committing to an actual design project.</p>
-            <p>Let's start by including the CSS file inside the <code>head</code> tag of your HTML.</p>
-            <h3>Understanding typography</h3>
-            <h4>Type properties</h4>
-            <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+            <p class="lead text-white">Let's start by including the CSS file inside the <code>head</code> tag of your HTML.</p>
+            <h3 class="lead text-white">Understanding typography</h3>
+            <h4 class="lead text-white">Type properties</h4>
+            <p class="lead text-white">A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
                 letters. A typeface represents shared patterns across a collection of letters.</p>
-            <h4>Baseline</h4>
-            <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+            <h4 class="lead text-white">Baseline</h4>
+            <p class="lead text-white">A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
                 letters. A typeface represents shared patterns across a collection of letters.</p>
-            <h4>Measurement from the baseline</h4>
-            <p>A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
+            <h4 class="lead text-white">Measurement from the baseline</h4>
+            <p class="lead text-white">A typeface is a collection of letters. While each letter is unique, certain shapes are shared across
                 letters. A typeface represents shared patterns across a collection of letters.</p>
-            <h3>Type classification</h3>
+            <h3 class="lead text-white">Type classification</h3>
             <h4>Serif</h4>
-            <p>A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
+            <p class="lead text-white">A serif is a small shape or projection that appears at the beginning or end of a stroke on a letter.
                 Typefaces with serifs are called serif typefaces. Serif fonts are classified as one of the
                 following:</p>
             <h4>Old-Style serifs</h4>
-            <ul>
+            <ul class="lead text-white">
                 <li>Low contrast between thick and thin strokes</li>
                 <li>Diagonal stress in the strokes</li>
                 <li>Slanted serifs on lower-case ascenders</li>
             </ul><img src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-2.png" alt="">
-            <ol>
+            <ol class="lead text-white">
                 <li>Low contrast between thick and thin strokes</li>
                 <li>Diagonal stress in the strokes</li>
                 <li>Slanted serifs on lower-case ascenders</li>
             </ol>
-            <h3>Laying the best for successful prototyping</h3>
-            <p>A serif is a small shape or projection that appears at the beginning:</p>
-            <blockquote>
+            <h3 class="lead text-white">Laying the best for successful prototyping</h3>
+            <p class="lead text-white">A serif is a small shape or projection that appears at the beginning:</p>
+            <blockquote class="lead text-white">
                 <p>Flowbite is just awesome. It contains tons of predesigned components and pages starting from
                     login screen to complex dashboard. Perfect choice for your next SaaS application.</p>
             </blockquote>
           
-            <h3>Best practices for setting up your prototype</h3>
-            <p><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
+            <h3 class="lead text-white">Best practices for setting up your prototype</h3>
+            <p class="lead text-white"><strong>Low fidelity or high fidelity?</strong> Fidelity refers to how close a prototype will be to
                 the real deal. If you’re simply preparing a quick visual aid for a presentation, a low-fidelity
                 prototype — like a wireframe with placeholder images and some basic text — would be more than
                 enough. But if you’re going for more intricate usability testing, a high-fidelity prototype — with
                 on-brand colors, fonts and imagery — could help get more pointed results.</p>
-            <p><strong>Consider your user</strong>. To create an intuitive user flow, try to think as your user
+            <p class="lead text-white"><strong>Consider your user</strong>. To create an intuitive user flow, try to think as your user
                 would when interacting with your product. While you can fine-tune this during beta testing,
                 considering your user’s needs and habits early on will save you time by setting you on the right
                 path.</p>
-            <p><strong>Start from the inside out</strong>. A nice way to both organize your tasks and create more
+            <p class="lead text-white"><strong>Start from the inside out</strong>. A nice way to both organize your tasks and create more
                 user-friendly prototypes is by building your prototypes ‘inside out’. Start by focusing on what will
                 be important to your user, like a Buy now button or an image gallery, and list each element by order
                 of priority. This way, you’ll be able to create a prototype that puts your users’ needs at the heart
                 of your design.</p>
-            <p>And there you have it! Everything you need to design and share prototypes — right in Flowbite Figma.
+            <p class="lead text-white">And there you have it! Everything you need to design and share prototypes — right in Flowbite Figma.
             </p>
             <section class="not-format">
                 <div class="flex justify-between items-center mb-6">
