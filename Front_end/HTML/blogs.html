@@ -1,277 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
-    <title>Your Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+  <title>Your Title</title>
 </head>
+
 <body>
-    <div class=" h-screen text-white flex items-center justify-center  relative">
-        
-        <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
-            <div class="h-full w-full">
-                    <div class="w-full border-b-2 flex items-center h-20 p-2">
-                        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/a.png" alt="b"/>
-                </div>
-                <div class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 ">
-                    
-                   <a href="home.html">
-                   <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy"/>
-                  </a>
-                  <a href="blogs.html">
-                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/joomla.png" alt="joomla"/>
-                  </a>
-                  <a href="nouveaute.html">
-                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/news.png" alt="news"/>
-                    </a>
-                  <a href="about.html">
-                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1"/>
-                  </a>
-                  <a href="parameters.html">
-                    <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37" src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1"/>
-                  </a>
-                </div>
-            </div>
-            
+  <div class=" h-screen text-white flex items-center justify-center  relative">
+
+    <div class="h-screen flex flex-wrap w-16 border-2 border-gray-300 left-0 absolute">
+      <div class="h-full w-full">
+        <div class="w-full border-b-2 flex items-center h-20 p-2">
+          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/4A9DEC/a.png" alt="b" />
         </div>
-        <div class="flex-1 pl-16 h-screen ">
-            <div class="w-full flex justify-between h-16  border border-2 border-gray-300">
-                <div class="h-full flex items-center justify-center w-2/12 ">
-                    <h2 class="text-black text-3xl  italic font-mono">Dashbord</h2>
-                </div>
-                <div class="h-full flex justify-between px-4 items-center w-5/12 ">
-                    <div class=" px-3 flex items-center h-full">
-                        <input class="input" placeholder="text">
-                    </div>
-                    <img onclick="add_Blog()" id="add_blog" width="35" height="35" src="../Images/add-blog.png" class="hover:bg-gray-200 hover:cursor-pointer" alt="external-plus-button-ui-anggara-basic-outline-anggara-putra"/>
-                    <div class="flex items-center justify-between w-fit gap-2 px-4">
+        <div class="w-full flex-col items-center py-8 justify-between flex mb-auto h-3/5 ">
 
-                        <div class="bg-green-700 w-8 h-8 rounded-full"></div>
-                        <div class="text-black text-md ">imad bouderoua</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full h-full px-10 bg-gray-100">
-                <div class="h-32 flex justify-between w-full ">
-                    <div class="h-full w-2/12 flex flex-col pl-8 gap-1 justify-center ">
-                        <h1 class="text-3xl -400 text-black italic font-bold font-mono">Blogs</h1>
-                        <h2 class="text-gray-500 italic">Blogs Overview</h2>
-                    </div>
-                    <div class="h-full w-2/12   flex items-center">
-                        <button title="filter" class="gap-5 bg-gray-200 filter">
-                            <div class="text-black">Filter</div>
-                            <svg viewBox="0 0 512 512" height="1em">
-                              <path
-                                d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
-                              ></path>
-                            </svg>
-                          </button>
-                          
-                    </div>
-                </div>
+          <a href="home.html">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/puffy/37/experimental-home-puffy.png" alt="experimental-home-puffy" />
+          </a>
+          <a href="blogs.html">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/joomla.png" alt="joomla" />
+          </a>
+          <a href="nouveaute.html">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/news.png" alt="news" />
+          </a>
+          <a href="about.html">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/info--v1.png" alt="info--v1" />
+          </a>
+          <a href="parameters.html">
+            <img class="hover:bg-gray-200 hover:cursor-pointer w-full p-3" width="37" height="37"
+              src="https://img.icons8.com/ios/37/settings--v1.png" alt="settings--v1" />
+          </a>
+        </div>
+      </div>
 
+    </div>
+    <div class="flex-1 pl-16 h-screen ">
+      <div class="w-full flex justify-between h-16  border border-2 border-gray-300">
+        <div class="h-full flex items-center justify-center w-2/12 ">
+          <h2 class="text-black text-3xl  italic font-mono">Dashbord</h2>
+        </div>
+        <div class="h-full flex justify-between px-4 items-center w-5/12 ">
+          <div class=" px-3 flex items-center h-full">
+            <input class="input" placeholder="text">
+          </div>
+          <img onclick="add_Blog()" id="add_blog" width="35" height="35" src="../Images/add-blog.png"
+            class="hover:bg-gray-200 hover:cursor-pointer"
+            alt="external-plus-button-ui-anggara-basic-outline-anggara-putra" />
+          <div class="flex items-center justify-between w-fit gap-2 px-4">
+
+            <div class="bg-green-700 w-8 h-8 rounded-full"></div>
+            <div class="text-black text-md ">imad bouderoua</div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full h-full px-10 bg-gray-100">
+        <div class="h-32 flex justify-between w-full ">
+          <div class="h-full w-2/12 flex flex-col pl-8 gap-1 justify-center ">
+            <h1 class="text-3xl -400 text-black italic font-bold font-mono">Blogs</h1>
+            <h2 class="text-gray-500 italic">Blogs Overview</h2>
+          </div>
+          <div class="h-full w-2/12   flex items-center">
+            <button title="filter" class="gap-5 bg-gray-200 filter">
+              <div class="text-black">Filter</div>
+              <svg viewBox="0 0 512 512" height="1em">
+                <path
+                  d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z">
+                </path>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+
+        <div class="container h-full w-full grid grid-cols-3 gap-5 p-3">
+
+          <div draggable="true" class="rounded-t-lg shadowc bg-white draggable">
+            <a href="#">
+                <img class="rounded-t-lg" src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/2.png" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
                 
-                <div class="container h-full w-full grid grid-cols-3 gap-5 p-3">
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">
-                    <div draggable="true" class="shadowc bg-gray-300 h-80" style="background-image: url('http://localhost/Survey-Corps_Blog/Back_end/start/storage/Capture%20d\'écran%202023-10-03%20111341.png');"></div>
-
-                    
-                    <div>titre</div>
-                    <div>contenu gkh y iug ytdjgk ruyr fyurifk</div>
-                  </div>
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">2</div>
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">3</div>
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">4</div>
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">5</div>
-                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">6</div>
-                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">7</div>
-                  <div draggable="true" class="shadowc bg-gray-300 h-80 draggable">8</div>
-                </div>
-              </div>
             </div>
           </div>
-    
-          <!-- FORM ADD MULTIPLE -->
-  
-          <div id="form_add_blog" class="hidden bg-gray-100 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5">
-            <div class="m-auto w-full">
-               <div>
-                  <button onclick="add_other_or_save_Blog()" type="button" class="relative w-full flex justify-center items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-900  focus:outline-none   transition duration-300 transform active:scale-95 ease-in-out">
-                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                        <g>
-                           <rect fill="none" height="24" width="24"></rect>
-                        </g>
-                        <g>
-                           <g>
-                              <path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path>
-                           </g>
-                        </g>
-                     </svg>
-                     <span class="pl-2 mx-1">Add another blog</span>
-                  </button>
-                  <div class="mt-5 bg-white rounded-lg shadow">
-                     <div class="container bg-white p-8 shadow-md">
-  
-                      <form id="blogForm" class="flex flex-col">
-                  
-                          <div>
-                              <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover Photo</label>
-                              <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6">
-                                  <div class="text-center">
-                                      <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                          <label for="image"
-                                              class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                              <span>Upload a File</span>
-                                              <input required id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
-                                          </label>
-                                          <p class="pl-1">or Drag and Drop</p>
-                                      </div>
-                                      <p class="mt-2 text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                                  </div>
-                              </div>
-                          </div>
-                  
-                          <label for="title" class="mt-6">Title:</label>
-                          <input type="text" id="title" required class="mt-2 border p-2">
-                  
-                          <label for="description" class="mt-4">Description:</label>
-                          <textarea id="description" required class="mt-2 border p-2 resize-y"></textarea>
-                      </form>
-                  </div>
-                  
-                    
-                     <hr class="mt-4">
-                     <div class="flex flex-row-reverse p-3">
-                        <div class="flex-initial pl-3">
-                           <button onclick="save_Blog()" type="button" class="photobutton flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                                 <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                 <path d="M5 5v14h14V7.83L16.17 5H5zm7 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-8H6V6h9v4z" opacity=".3"></path>
-                                 <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"></path>
-                              </svg>
-                              <span class="pl-2 mx-1">Save</span>
-                           </button>
-                        </div>
-                        <div class="flex-initial">
-                           <button onclick="clear_form()" type="button" class="flex items-center px-5 py-2.5 font-medium tracking-wide text-black capitalize rounded-md  hover:bg-red-200 hover:fill-current hover:text-red-600  focus:outline-none  transition duration-300 transform active:scale-95 ease-in-out">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
-                                 <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                 <path d="M8 9h8v10H8z" opacity=".3"></path>
-                                 <path d="M15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"></path>
-                              </svg>
-                              <span class="pl-2 mx-1">Clear</span>
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+          
+          <div draggable="true" class="rounded-t-lg shadowc bg-white draggable">
+            <a href="#">
+                <img class="rounded-t-lg h-96" src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/2.png" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                
             </div>
-         </div>
-  
-          <!-- END FORM -->
-        </body>
-        <script src="../JsFILES/blogs.js"></script>
-        <script>
-          const savebutton = document.querySelector(".photobutton").addEventListener("click", () => {
-            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM ADD MULTIPLE -->
+
+  <div id="form_add_blog"
+    class="hidden bg-gray-100 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5">
+    <div class="m-auto w-full">
+      <div>
+        <button onclick="add_other_or_save_Blog()" type="button"
+          class="relative w-full flex justify-center items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-900  focus:outline-none   transition duration-300 transform active:scale-95 ease-in-out">
+          <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24"
+            width="24px" fill="#FFFFFF">
+            <g>
+              <rect fill="none" height="24" width="24"></rect>
+            </g>
+            <g>
+              <g>
+                <path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path>
+              </g>
+            </g>
+          </svg>
+          <span class="pl-2 mx-1">Add another blog</span>
+        </button>
+        <div class="mt-5 bg-white rounded-lg shadow">
+          <div class="container bg-white p-8 shadow-md">
+
+            <form id="blogForm" class="flex flex-col">
+
+              <div>
+                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover Photo</label>
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6">
+                  <div class="text-center">
+                    <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label for="image"
+                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                        <span>Upload a File</span>
+                        <input required id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
+                      </label>
+                      <p class="pl-1">or Drag and Drop</p>
+                    </div>
+                    <p class="mt-2 text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                  </div>
+                </div>
+              </div>
+
+              <label for="title" class="mt-6">Title:</label>
+              <input type="text" id="title" required class="mt-2 border p-2">
+
+              <label for="description" class="mt-4">Description:</label>
+              <textarea id="description" required class="mt-2 border p-2 resize-y"></textarea>
+            </form>
+          </div>
+
+
+          <hr class="mt-4">
+          <div class="flex flex-row-reverse p-3">
+            <div class="flex-initial pl-3">
+              <button onclick="save_Blog()" type="button"
+                class="photobutton flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                  <path d="M0 0h24v24H0V0z" fill="none"></path>
+                  <path
+                    d="M5 5v14h14V7.83L16.17 5H5zm7 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-8H6V6h9v4z"
+                    opacity=".3"></path>
+                  <path
+                    d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z">
+                  </path>
+                </svg>
+                <span class="pl-2 mx-1">Save</span>
+              </button>
+            </div>
+            <div class="flex-initial">
+              <button onclick="clear_form()" type="button"
+                class="flex items-center px-5 py-2.5 font-medium tracking-wide text-black capitalize rounded-md  hover:bg-red-200 hover:fill-current hover:text-red-600  focus:outline-none  transition duration-300 transform active:scale-95 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                  <path d="M0 0h24v24H0V0z" fill="none"></path>
+                  <path d="M8 9h8v10H8z" opacity=".3"></path>
+                  <path d="M15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z">
+                  </path>
+                </svg>
+                <span class="pl-2 mx-1">Clear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- END FORM -->
+</body>
+<script src="../JsFILES/blogs.js"></script>
+<script>
+  const savebutton = document.querySelector(".photobutton").addEventListener("click", () => {
+
     console.log("dkhel ")
     var fileInput = document.getElementById('image');
     var file = fileInput.files[0];
-            
+
     var formData = new FormData();
     formData.append('file', file);
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost/Survey-Corps_Blog/Back_end/start/middlewarephotos.php', true);
-    
+
     xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Handle the response from the server
-            console.log(xhr.responseText);
-        } else {
-            console.error('Error during file upload. Status:', xhr.status);
-        }
+      if (xhr.status === 200) {
+        // Handle the response from the server
+        console.log(xhr.responseText);
+      } else {
+        console.error('Error during file upload. Status:', xhr.status);
+      }
     };
 
     xhr.send(formData);
-}
-);
+  }
+  );
 
-          
-        </script>
+
+</script>
 
 
 
 
 <style>
-    .input {
-  border: 2px solid transparent;
-  width: 15em;
-  height: 2.5em;
-  padding-left: 0.8em;
-  outline: none;
-  /* overflow: hidden; */
-  background-color: #F3F3F3;
-  border-radius: 10px;
-  transition: all 0.5s;
-}
+  .input {
+    border: 2px solid transparent;
+    width: 15em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    /* overflow: hidden; */
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
 
-.input:hover,
-.input:focus {
-  border: 2px solid #4A9DEC;
-  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
-  background-color: white;
-}
-.filter {
-  width: 130px;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(0, 0, 0, 0.192);
-  cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
-  transition: all 0.3s;
-}
+  .input:hover,
+  .input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+  }
 
-.filter svg {
-  height: 16px;
-  fill: rgb(77, 77, 77);
-  transition: all 0.3s;
-}
-.filter:hover {
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
-  background-color: rgba(59, 59, 59, 0.187);
-}
-.filter:hover svg {
-  fill: white;
-}
-.shadowc{
+  .filter {
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
+    transition: all 0.3s;
+  }
+
+  .filter svg {
+    height: 16px;
+    fill: rgb(77, 77, 77);
+    transition: all 0.3s;
+  }
+
+  .filter:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
+    background-color: rgba(59, 59, 59, 0.187);
+  }
+
+  .filter:hover svg {
+    fill: white;
+  }
+
+  .shadowc {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
+  }
 
-.container {
-  
-  padding: 1rem;
-  margin-top: 1rem;
-}
+  .container {
 
-.draggable {
-  padding: 1rem;
- 
-  border: 1px solid black;
-  cursor: move;
-}
+    padding: 1rem;
+    margin-top: 1rem;
+  }
 
-.draggable.dragging {
-  opacity: .5;
-}
+  .draggable {
+    border: 1px solid black;
+    cursor: move;
+    height: max-content;
+  }
+
+  .draggable.dragging {
+    opacity: .5;
+  }
 </style>
 
 
 </html>
-
