@@ -162,7 +162,33 @@
       // Do something with the values (you can console.log or send to server)
       console.log('Email:', emailsi);
       console.log('Password:', passwordsi);
+      var xhr = new XMLHttpRequest();
+xhr.open("PUT", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/Musers/0", true);
+xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+xhr.setRequestHeader("token", "code");
+xhr.setRequestHeader("userid", "1");
 
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+            // Successful response
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('XHR error:', xhr.status, xhr.statusText);
+        }
+    }
+};
+
+var requestData = {
+    "username": "ahm",
+    "Email": emailsi,
+    "MotDePasse": passwordsi,
+    "id_role": "2"
+};
+
+xhr.send(JSON.stringify(requestData))
       // You can add further logic or send the data to a server using AJAX, fetch, etc.
     }
 

@@ -57,6 +57,7 @@ class DatabaseConnect
 
     public function selectWhere($VALUES = '*',$table, $where) {
         try {
+            
         $pdo = $this->getPdo();
         $statement = $pdo->prepare("SELECT $VALUES FROM $table WHERE $where");
         $statement->execute();
@@ -91,6 +92,7 @@ class DatabaseConnect
     }
     public function Update($table, $data,$condition)
 {
+    
     try {
         $pdo = $this->pdo;
         $comand = "";
@@ -98,7 +100,7 @@ class DatabaseConnect
             $comand .= "$key=:$key, ";
         }
         $comand = rtrim($comand, ', ');
-
+        echo "UPDATE $table SET $comand WHERE $condition";
         $query = "UPDATE $table SET $comand WHERE $condition";
 
         $statement = $pdo->prepare($query);
@@ -112,7 +114,7 @@ class DatabaseConnect
         if ($rowCount > 0) {
             echo "Data updated successfully! Rows affected: $rowCount\n";
         } else {
-            echo "No rows updated. The specified condition might not match any existing rows.\n";
+            return "No rows updated";
         }
        
     } catch (Exception $e) {

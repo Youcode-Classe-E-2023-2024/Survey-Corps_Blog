@@ -9,7 +9,20 @@ if($_SERVER['REQUEST_METHOD'] === "PUT"){
             // add filter later
             var_dump($data);
             echo $this->senderid; // hna ghanzid check dyal permision 
-            $Users->Update("Utilisateurs", $data,"id_user = {$this->others[0]}");
+            echo $this->others[0];
+            if($this->others[0] === '0'){
+                // $Users->selectWhere('*',"Utilisateurs", "Email = {$data['Email']} AND MotDePasse = {$data['MotDePasse']}");
+                $x = $Users->Update("Utilisateurs", $data,"Email = '{$data['Email']}' AND MotDePasse = '{$data['MotDePasse']}'");
+              
+                if($x === "No rows updated" ){
+                    echo "accont not found ";
+                }else{
+                    echo "account present";
+                }
+            }else{
+                $Users->Update("Utilisateurs", $data,"id_user = {$this->others[0]}");
+            }
+            
         } else {
             echo "Failed to decode JSON data";
         }
