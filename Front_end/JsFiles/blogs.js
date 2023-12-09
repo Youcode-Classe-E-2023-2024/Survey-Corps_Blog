@@ -155,7 +155,7 @@ function getDragAfterElement(container, y) {
     });
 
     // HIDDEN THE FORM AFTER SAVE THE BLOG
-    // add_Blog();
+     add_Blog();
   }
   
   // Function to clear the form inputs
