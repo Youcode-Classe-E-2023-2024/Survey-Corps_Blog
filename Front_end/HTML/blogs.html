@@ -65,7 +65,11 @@
 
                 
                 <div class="container h-full w-full grid grid-cols-3 gap-5 p-3">
-                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">1</div>
+                  <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">
+                    <img src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/Capture d'écran 2023-10-03 111341.png" alt="">
+                    <div>titre</div>
+                    <div>contenu gkh y iug ytdjgk ruyr fyurifk fkf</div>
+                  </div>
                   <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">2</div>
                   <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">3</div>
                   <div draggable="true"  class="shadowc bg-gray-300 h-80 draggable">4</div>
@@ -109,7 +113,7 @@
                                           <label for="image"
                                               class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                               <span>Upload a File</span>
-                                              <input id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
+                                              <input required id="image" accept="image/*" name="file-upload" type="file" class="sr-only">
                                           </label>
                                           <p class="pl-1">or Drag and Drop</p>
                                       </div>
@@ -130,7 +134,7 @@
                      <hr class="mt-4">
                      <div class="flex flex-row-reverse p-3">
                         <div class="flex-initial pl-3">
-                           <button onclick="save_Blog()" type="button" class="flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out">
+                           <button onclick="save_Blog()" type="button" class="photobutton flex items-center px-5 py-2.5 font-medium tracking-wide text-white capitalize   bg-black rounded-md hover:bg-gray-800  focus:outline-none focus:bg-gray-900  transition duration-300 transform active:scale-95 ease-in-out">
                               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
                                  <path d="M0 0h24v24H0V0z" fill="none"></path>
                                  <path d="M5 5v14h14V7.83L16.17 5H5zm7 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-8H6V6h9v4z" opacity=".3"></path>
@@ -157,8 +161,35 @@
   
           <!-- END FORM -->
         </body>
-        
-        
+        <script src="../JsFILES/blogs.js"></script>
+        <script>
+          const savebutton = document.querySelector(".photobutton").addEventListener("click", () => {
+            
+    console.log("dkhel ")
+    var fileInput = document.getElementById('image');
+    var file = fileInput.files[0];
+            
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost/Survey-Corps_Blog/Back_end/start/middlewarephotos.php', true);
+    
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // Handle the response from the server
+            console.log(xhr.responseText);
+        } else {
+            console.error('Error during file upload. Status:', xhr.status);
+        }
+    };
+
+    xhr.send(formData);
+}
+);
+
+          
+        </script>
 
 
 
@@ -228,6 +259,7 @@
   opacity: .5;
 }
 </style>
-<script src="../JsFILES/blogs.js"></script>
+
+
 </html>
 
