@@ -1,4 +1,26 @@
-const draggables = document.querySelectorAll('.draggable')
+
+console.log("hifromstart");
+var xhrfirst = new XMLHttpRequest();
+xhrfirst.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/anonces", true);
+xhrfirst.setRequestHeader("token", "code");
+xhrfirst.setRequestHeader("userid", 1);
+
+xhrfirst.onreadystatechange = function () {
+    if (xhrfirst.readyState == 4) {
+        if (xhrfirst.status == 200) {
+            // Successful response
+            var data = JSON.parse(xhrfirst.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('xhrfirst error:', xhrfirst.status, xhrfirst.statusText);
+        }
+    }
+};
+
+xhrfirst.send();
+
+  const draggables = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 
 draggables.forEach(draggable => {
@@ -75,10 +97,19 @@ function getDragAfterElement(container, y) {
 
   // Function to save blog
   function save_Blog() {
+    
     const imageInput = document.getElementById('image');
     const titleInput = document.getElementById('title');
     const descriptionInput = document.getElementById('description');
 
+    const selectedFile = imageInput.files[0];
+
+    if (selectedFile) {
+        const fileName = selectedFile.name;
+        console.log('Selected image file name:', fileName);
+    } else {
+        console.log('No file selected');
+    }
     // Check if the inputs are not empty
     if (imageInput.files.length === 0 || !titleInput.value || !descriptionInput.value) {
       Swal.fire({
@@ -87,12 +118,6 @@ function getDragAfterElement(container, y) {
       return;
     }
 
-    var requestData = {
-      "Titre": titleInput.value,
-      "Contenu": descriptionInput.value,
-      "id_user": 3
-    };
-    console.log(requestData);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/PAnonces", true);
     xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
@@ -115,10 +140,13 @@ function getDragAfterElement(container, y) {
     var requestData = {
         "Titre": titleInput.value,
         "Contenu": descriptionInput.value,
-        "id_user": 1
+        "id_user": 1,
+        "Prix":selectedFile.name
     };
     
     xhr.send(JSON.stringify(requestData))
+    
+    
     // alert
     Swal.fire({
     title: "Good job!",
@@ -127,9 +155,9 @@ function getDragAfterElement(container, y) {
     });
 
     // HIDDEN THE FORM AFTER SAVE THE BLOG
-    // add_Blog();
+     add_Blog();
   }
-
+  
   // Function to clear the form inputs
   function clear_form() {
     const imageInput = document.getElementById('image');
