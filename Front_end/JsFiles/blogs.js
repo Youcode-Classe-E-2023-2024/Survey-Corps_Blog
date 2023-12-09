@@ -118,12 +118,6 @@ function getDragAfterElement(container, y) {
       return;
     }
 
-    var requestData = {
-      "Titre": titleInput.value,
-      "Contenu": descriptionInput.value,
-      "id_user": 3
-    };
-    console.log(requestData);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/PAnonces", true);
     xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
