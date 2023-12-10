@@ -1,0 +1,13 @@
+::-webkit-scrollbar { width: 8px; }
+
+::-webkit-scrollbar-track { background-color: rgb(50, 88, 244); }
+
+::-webkit-scrollbar-thumb { background-color: rgb(15, 40, 150); }
+
+html {
+    scroll-behavior: smooth;
+}
+
+#date{
+    animation: .8s ease-out .1s;
+}
