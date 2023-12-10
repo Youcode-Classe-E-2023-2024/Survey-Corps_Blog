@@ -3,7 +3,7 @@
  */
 
 function animateCardOn(pcard) {
-    pcard.style.backgroundColor = 'red';
+    pcard.style.backgroundColor = 'rgb(50, 88, 244)';
     pcard.style.transform = 'translateX(30px)';
 }
 function animateCardBack(pcard) {
