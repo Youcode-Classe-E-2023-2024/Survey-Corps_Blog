@@ -19,15 +19,17 @@ xhrfirst.onreadystatechange = function () {
                 <img class="rounded-t-lg h-64 w-96" src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/${element.Prix}" alt="" />
               </a>
               <div class="p-5">
+              <span class="rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-3 bg-blue-800" id="date" style="background-color: rgb(0, 0, 100); transform: translateX(0px);">${element.Date}</span>
+            
                 <a href="#">
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.Titre}</h5>
                 </a>
                 <!-- Wrap the description in a container with fixed height and scrolling -->
                 <div class="max-h-24 overflow-y-auto">
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> ${element.Contenu} </p>
+                  <p class="mb-3 break-all font-normal text-gray-700 dark:text-gray-400"> ${element.Contenu} </p>
                 </div>
                 </div>
-                <div class=" text-gray-700" >Create at : ${element.Date} </div>
+              
             </div>`
             })
         } else {
