@@ -11,6 +11,8 @@ if($_SERVER['REQUEST_METHOD'] === "DELETE"){
     }elseif($data["id_Permission"] === "user"){
 
         $Admin->delete("Utilisateurs","id_user = {$data["id_user"]}");
+        // FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
+        $Admin->delete("Articles","id_user = {$data["id_user"]}");
     }
     
 }

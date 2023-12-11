@@ -13,6 +13,29 @@
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfJvW1RlZj5FpxJ3z9+uL4P6blgM5ZPaUwT4uFR16n1UvA6HgPQ9CExlJEPi2Jmw" crossorigin="anonymous">
      <title>Your Title</title>
+     <!-- Include Email.js library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Replace these with your Email.js user ID and template ID
+                const userID = '_ATaFCXzs-byqs-Q9';
+                const templateID = 'template_b73dral';
+                
+                emailjs.sendForm('default_service.', templateID, this, userID)
+                    .then(function(response) {
+                        console.log('Email sent successfully:', response);
+                        alert('Message sent successfully!');
+                    }, function(error) {
+                        console.log('Failed to send email. Error:', error);
+                        alert('Failed to send message. Please try again later.');
+                    });
+            });
+        });
+    </script>
  </head>
  <body>
      <div class="h-screen text-white flex items-center justify-center  relative">
@@ -415,26 +438,26 @@
                             </div>
                 
                                 <div class="ContactForm">
-                                    <form id="myForm">
-                                        <h2>Send Message</h2>
                                     
+                                    <form id="contactForm">
+                                        <h2>Send Message</h2>
+
                                         <div class="inputBox"> 
-                                            <input type="text" name="fullname" id="fullname" required="required">
+                                            <input type="text" id="name" name="name" required>
                                             <span>Full Name</span>
                                         </div>
-                                    
                                         <div class="inputBox"> 
                                             <input type="email" name="email" id="email" required="required">
                                             <span>Email</span>
                                         </div>
                                     
                                         <div class="inputBox"> 
-                                            <textarea required="required" name="message" id="message"></textarea>
+                                            <textarea id="message" name="message" rows="4" required></textarea>
                                             <span>Type your Message...</span>
                                         </div>
                                     
                                         <div class="inputBox"> 
-                                            <input type="submit" class="Send" value="Send">
+                                            <button style="width: 100%; border-bottom: 2px solid #333; border-radius: 13px; background-color: #4A9DEC;" type="submit">Submit</button>
                                         </div>
                                     
                                         <div class="inputBox"> 
@@ -467,19 +490,20 @@
             }
         });
 
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevents the form from submitting in the traditional way
+    //     document.getElementById('myForm').addEventListener('submit', function(event) {
+    //     event.preventDefault(); // Prevents the form from submitting in the traditional way
 
-        var nameValue = document.getElementById('fullname').value;
-        var emailValue = document.getElementById('email').value;
-        var MsgValue = document.getElementById('message').value;
+    //     var nameValue = document.getElementById('fullname').value;
+    //     var emailValue = document.getElementById('email').value;
+    //     var MsgValue = document.getElementById('message').value;
 
-        console.log('Name:', nameValue);    
-        console.log('Email:', emailValue);
-        console.log('Message:', MsgValue);
 
-    });
+    //     console.log('Name:', nameValue);    
+    //     console.log('Email:', emailValue);
+    //     console.log('Message:', MsgValue);
 
+    // });
+    
     </script>
 
  </body>
