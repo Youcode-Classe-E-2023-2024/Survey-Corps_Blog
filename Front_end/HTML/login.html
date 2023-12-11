@@ -129,19 +129,17 @@
             <!-- !!!!!!!!!!!!!!!!-->
             <!-- ! Create Acount Form-->
 
-            <form class="h-fit flex flex-col justify-center" id="registrationForm">
-              <input type="text" id="username" placeholder="User Name"
-                class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-              <input type="email" onkeydown="validation()" id="emailr" placeholder="Email"
-                class="border-b-2 text-black w-[100%] text-black outline-none" required>
+            <form class="h-fit flex flex-col justify-center" id="registrationForm" onsubmit="submitRegistrationForm(event)">
+              <input type="text" id="username" placeholder="User Name" class="border-b-2 text-black my-3 w-full outline-none" required>
+              
+              <input type="email" id="email1" placeholder="Email" oninput="validation()" class="border-b-2 text-black my-3 w-full outline-none" required>
               <span id="text1"></span>
-
-              <input type="password" id="registrationPassword" placeholder="Password"
-                class="border-b-2 text-black my-9 w-[100%] outline-none" required>
-
-              <input type="submit" value="Sign-Up" onclick="submitRegistrationForm(event)"
-                class="font-bold text-black my-5 mx-auto bg-purple-300 text-white px-16 py-3 rounded-[30px]">
+            
+              <input type="password" id="registrationPassword" placeholder="Password" class="border-b-2 text-black my-3 w-full outline-none" required>
+            
+              <input type="submit" value="Sign-Up" class="font-bold cursor-pointer text-white my-5 mx-auto bg-purple-300 px-16 py-3 rounded-[30px]">
             </form>
+            
 
             <!-- !!!!!!!!!!!!!!!!-->
 
@@ -152,7 +150,7 @@
   </div>
   <!-- this is the main section -->
 
-  <script>
+  <!-- <script>
     function submitForm(event) {
       // Get input values
       event.preventDefault();
@@ -248,7 +246,7 @@ xhr.send(JSON.stringify(requestData))
     }
 
 
-  </script>
+  </script> -->
 
 
   <!-- the end of main section -->
@@ -260,7 +258,7 @@ xhr.send(JSON.stringify(requestData))
   <!-- the end of footer section -->
 
   <!--! Form script-->
-  <script>
+  <!-- <script>
     $(document).ready(function () {
       $("#registrationForm").submit(function (event) {
         event.preventDefault();
@@ -291,7 +289,7 @@ xhr.send(JSON.stringify(requestData))
       });
     });
 
-  </script>
+  </script> -->
   <!--! Form script-->
 
 
@@ -320,7 +318,7 @@ xhr.send(JSON.stringify(requestData))
     }
     function validation() {
       var form = document.getElementById("registrationForm");
-      var email = document.getElementById("email").value;
+      var email = document.getElementById("email1").value;
       var text = document.getElementById("text1");
       var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
