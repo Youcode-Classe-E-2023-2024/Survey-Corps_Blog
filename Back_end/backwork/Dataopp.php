@@ -47,8 +47,12 @@ class DatabaseConnect
     }
 
     public function selectAll($table) {
+        $cond  = "";
+        if($table === "Articles"){
+            $cond = "WHERE deleted != 'yes'";
+        }
         $pdo = $this->getPdo();
-        $statement = $pdo->prepare("SELECT * FROM $table WHERE deleted != 'yes'");
+        $statement = $pdo->prepare("SELECT * FROM $table $cond");
 
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
