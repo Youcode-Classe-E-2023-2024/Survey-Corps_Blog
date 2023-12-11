@@ -161,7 +161,7 @@ function getDragAfterElement(container, y) {
     var requestData = {
         "Titre": titleInput.value,
         "Contenu": descriptionInput.value,
-        "id_user": 1,
+        "id_user": Number(localStorage.getItem("userid")),
         "Prix":selectedFile.name
     };
     
