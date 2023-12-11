@@ -1,4 +1,26 @@
 var search = document.querySelector(".search");
+var filter = document.querySelector('.filter');
+filter.addEventListener('click', () => {
+  // Get all blog elements
+  console.log('filter')
+  var blogs = Array.from(document.querySelectorAll('.blogs'));
+
+  // Sort blogs based on their titles
+  blogs.sort((a, b) => {
+    var titleA = a.querySelector('.titre')?.textContent || '';
+    var titleB = b.querySelector('.titre')?.textContent || '';
+    return titleA.localeCompare(titleB);
+  });
+
+  // Remove existing blogs from the parent element
+  var parentElement = document.querySelector('.blogs-container');
+  parentElement.innerHTML = '';
+
+  // Append sorted blogs to the parent element
+  blogs.forEach(blog => {
+    parentElement.appendChild(blog);
+  });
+});
 
 search.addEventListener("input", () => {
   console.log("hi")
