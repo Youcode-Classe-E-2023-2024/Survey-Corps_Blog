@@ -25,7 +25,7 @@ xhrfirst.onreadystatechange = function () {
                   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.Titre}</h5>
                 </a>
                 <!-- Wrap the description in a container with fixed height and scrolling -->
-                <div class="max-h-24 overflow-y-auto">
+                <div class="max-h-24 overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-100">
                   <p class="mb-3 break-all font-normal text-gray-700 dark:text-gray-400"> ${element.Contenu} </p>
                 </div>
                 </div>
