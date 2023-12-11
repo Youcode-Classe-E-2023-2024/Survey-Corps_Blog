@@ -1,3 +1,30 @@
+var search = document.querySelector(".search");
+
+search.addEventListener("input", () => {
+  console.log("hi")
+    var blogs = document.querySelectorAll('.blogs'); 
+
+    blogs.forEach(element => {
+    var titre = element.querySelector('.titre')?.textContent;
+    console.log(titre)
+        if (search.value) {
+           
+            var blogContent = titre.toLowerCase();
+            var searchTerm = search.value.toLowerCase();
+
+            if (blogContent.includes(searchTerm)) {
+               
+                element.style.display = "block"; 
+            } else {
+                element.style.display = "none";
+            }
+        } else {
+            element.style.display = "block";
+        }
+    });
+});
+
+
 
 console.log("hifromstart");
 var xhrfirst = new XMLHttpRequest();
@@ -14,7 +41,7 @@ xhrfirst.onreadystatechange = function () {
             const containerd = document.querySelector(".container");
             console.log(containerd);
             data.forEach((element,index )=>{
-              containerd.innerHTML += `<div draggable="true" class="rounded-t-lg shadowc bg-white draggable">
+              containerd.innerHTML += `<div draggable="true" class="blogs rounded-t-lg shadowc bg-white draggable">
               <a href="#">
                 <img class="rounded-t-lg h-64 w-96" src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/${element.Prix}" alt="" />
               </a>
@@ -22,7 +49,7 @@ xhrfirst.onreadystatechange = function () {
               <span class="rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-3 bg-blue-800" id="date" style="background-color: rgb(0, 0, 100); transform: translateX(0px);">${element.Date}</span>
             
                 <a href="#">
-                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.Titre}</h5>
+                  <h5 class="titre mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.Titre}</h5>
                 </a>
                 <!-- Wrap the description in a container with fixed height and scrolling -->
                 <div class="max-h-24 overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-100">
