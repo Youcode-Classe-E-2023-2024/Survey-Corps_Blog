@@ -15,12 +15,14 @@ if($_SERVER['REQUEST_METHOD'] === "PUT"){
               
                 if($x === "No rows updated" ){
                     echo "accont not found ";
+                    http_response_code(400); 
                 }else{
                     echo json_encode($Users->selectWhere("id_user","Utilisateurs","Email = '{$data['Email']}' AND MotDePasse = '{$data['MotDePasse']}'")) ;
                     http_response_code(200); 
                 }
             }else{
                 $Users->Update("Utilisateurs", $data,"id_user = {$this->others[0]}");
+
             }
             
         } else {

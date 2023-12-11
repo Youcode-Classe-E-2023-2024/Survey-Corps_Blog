@@ -179,10 +179,12 @@ xhr.onreadystatechange = function () {
             var data = JSON.parse(xhr.responseText);
             console.log(data);
             console.log(data[0].id_user)
-            localStorage.setItem("userid",data[0].id_user)
+            localStorage.setItem("userid",data[0].id_user);
+            localStorage.setItem("email_loged",emailsi);
+            window.location.href = 'http://localhost/Survey-Corps_Blog/Front_end/HTML/blogs.html';
         } else {
 
-            console.error('XHR error:', xhr.status, xhr.statusText);
+            console.log('account not found');
         }
     }
 };
