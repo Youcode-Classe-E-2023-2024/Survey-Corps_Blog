@@ -188,9 +188,10 @@
     xhr.open('POST', 'http://localhost/Survey-Corps_Blog/Back_end/start/middlewarephotos.php', true);
     
     xhr.onload = function () {
-        if (xhr.status === 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             // Handle the response from the server
             console.log(xhr.responseText);
+            console.log('it\'s working')
         } else {
             console.error('Error during file upload. Status:', xhr.status);
         }

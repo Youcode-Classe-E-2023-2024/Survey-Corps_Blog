@@ -1,6 +1,7 @@
 /**
  * Data JS Library
  */
+
 $(document).ready(function() {
 
     var table = $('#myDataTable').DataTable({
@@ -9,9 +10,11 @@ $(document).ready(function() {
         .columns.adjust()
         .responsive.recalc();
 });
+
 /**
 * Edit PopUp JS Styling
 */
+
 const editPopUp = document.getElementById("bord");
 editPopUp.style.width = "800px";
 editPopUp.addEventListener('mouseover', function() {
@@ -75,10 +78,15 @@ function fetchDataAndAppendToTable() {
   }
 
   document.addEventListener('load', fetchDataAndAppendToTable);
+  let xhrfirst = new XMLHttpRequest();
+  xhrfirst.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/anonces", true);
+  xhrfirst.setRequestHeader("token", "code");
+  xhrfirst.setRequestHeader("userid", 1);
 
 /**
  * send new data
  */
+
 function sendData() {
     const newTitle = document.getElementById('editedTitle');
     const newDescription = document.getElementById('editedDescription');
