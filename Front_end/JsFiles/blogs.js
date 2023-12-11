@@ -11,6 +11,24 @@ xhrfirst.onreadystatechange = function () {
             // Successful response
             var data = JSON.parse(xhrfirst.responseText);
             console.log(data);
+            const containerd = document.querySelector(".container");
+            console.log(containerd);
+            data.forEach((element,index )=>{
+              containerd.innerHTML += `<div draggable="true" class="rounded-t-lg shadowc bg-white draggable">
+              <a href="#">
+                <img class="rounded-t-lg h-64 w-[26rem]" src="http://localhost/Survey-Corps_Blog/Back_end/start/storage/${element.Prix}" alt="" />
+              </a>
+              <div class="p-5">
+                <a href="#">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.Titre}</h5>
+                </a>
+                <!-- Wrap the description in a container with fixed height and scrolling -->
+                <div class="max-h-24 overflow-y-auto">
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> ${element.Contenu} </p>
+                </div>
+              </div>
+            </div>`
+            })
         } else {
             // Error handling
             console.error('xhrfirst error:', xhrfirst.status, xhrfirst.statusText);
