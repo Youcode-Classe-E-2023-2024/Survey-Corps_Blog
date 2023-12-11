@@ -162,30 +162,35 @@
       // Do something with the values (you can console.log or send to server)
       console.log('Email:', emailsi);
       console.log('Password:', passwordsi);
+      var currentDate = new Date();
+
+
+      var currentTime = currentDate.getTime();
       var xhr = new XMLHttpRequest();
 xhr.open("PUT", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/Musers/0", true);
-xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+xhr.setRequestHeader("Content-Type", "application/json"); 
 xhr.setRequestHeader("token", "code");
 xhr.setRequestHeader("userid", "1");
 
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
         if (xhr.status == 200) {
-            // Successful response
+
             var data = JSON.parse(xhr.responseText);
             console.log(data);
+            console.log(data[0].id_user)
+            localStorage.setItem("userid",data[0].id_user)
         } else {
-            // Error handling
+
             console.error('XHR error:', xhr.status, xhr.statusText);
         }
     }
 };
 
 var requestData = {
-    "username": "ahm",
     "Email": emailsi,
     "MotDePasse": passwordsi,
-    "id_role": "2"
+    "last_log":currentTime
 };
 
 xhr.send(JSON.stringify(requestData))

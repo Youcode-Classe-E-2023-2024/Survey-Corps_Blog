@@ -100,7 +100,7 @@ class DatabaseConnect
             $comand .= "$key=:$key, ";
         }
         $comand = rtrim($comand, ', ');
-        echo "UPDATE $table SET $comand WHERE $condition";
+        
         $query = "UPDATE $table SET $comand WHERE $condition";
 
         $statement = $pdo->prepare($query);
@@ -112,7 +112,7 @@ class DatabaseConnect
         $statement->execute();
         $rowCount = $statement->rowCount();
         if ($rowCount > 0) {
-            echo "Data updated successfully! Rows affected: $rowCount\n";
+            // echo "Data updated successfully! Rows affected: $rowCount\n";
         } else {
             return "No rows updated";
         }

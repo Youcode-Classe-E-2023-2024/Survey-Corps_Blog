@@ -153,7 +153,7 @@ xhr.send()
  DELETE ARTICLE
  <!-- 
     var xhr = new XMLHttpRequest();
-xhr.open("DELETE", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/DANONCES/7", true);
+xhr.open("DELETE", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/DANONCES/4", true);
 xhr.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
 xhr.setRequestHeader("token", "code");
 xhr.setRequestHeader("userid", "1");

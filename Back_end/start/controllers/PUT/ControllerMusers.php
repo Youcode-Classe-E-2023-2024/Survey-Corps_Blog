@@ -7,9 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === "PUT"){
     }else{
         if ($data !== null) {
             // add filter later
-            var_dump($data);
-            echo $this->senderid; // hna ghanzid check dyal permision 
-            echo $this->others[0];
+            
+          
             if($this->others[0] === '0'){
                 // $Users->selectWhere('*',"Utilisateurs", "Email = {$data['Email']} AND MotDePasse = {$data['MotDePasse']}");
                 $x = $Users->Update("Utilisateurs", $data,"Email = '{$data['Email']}' AND MotDePasse = '{$data['MotDePasse']}'");
@@ -17,7 +16,8 @@ if($_SERVER['REQUEST_METHOD'] === "PUT"){
                 if($x === "No rows updated" ){
                     echo "accont not found ";
                 }else{
-                    echo "account present";
+                    echo json_encode($Users->selectWhere("id_user","Utilisateurs","Email = '{$data['Email']}' AND MotDePasse = '{$data['MotDePasse']}'")) ;
+                    http_response_code(200); 
                 }
             }else{
                 $Users->Update("Utilisateurs", $data,"id_user = {$this->others[0]}");
