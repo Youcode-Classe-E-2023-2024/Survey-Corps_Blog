@@ -9,11 +9,21 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){;
         
 
         $Users->Insert("Utilisateurs",$data);
-        $id = $Users->selectWhere("id_user","Utilisateurs","Email = {$data['Email']} AND MotDePasse = {$data['MotDePasse']} ");
-        echo $id;
-        // $Users->Insert("Utilisateurs",$data);
-        // $Users->Insert("Utilisateurs",$data);
-        // $Users->Insert("Utilisateurs",$data);
+        
+        $id = $Users->selectWhere(
+            "id_user",
+            "Utilisateurs",
+            "Email = '{$data['Email']}' AND MotDePasse = '{$data['MotDePasse']}'"
+        );
+        echo $id[0]['id_user'] ;
+
+        $Users->Insert("affecter_user_permissions", ["id_user" => $id[0]['id_user'], "id_Permission" => 1]);
+        $Users->Insert("affecter_user_permissions", ["id_user" => $id[0]['id_user'], "id_Permission" => 2]);
+        $Users->Insert("affecter_user_permissions", ["id_user" => $id[0]['id_user'], "id_Permission" => 3]);
+
+
+        // $Users->Insert("Utilisateurs", [$id[0]['id_user'] => '2']);
+        // $Users->Insert("Utilisateurs", [$id[0]['id_user'] => '3']);
 
         
 
