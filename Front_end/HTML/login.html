@@ -63,6 +63,11 @@
       </div>
 
     </div>
+
+
+
+
+    <!--!!!!!!!! Size modufication later-->
     <!-- content -->
     <div class="centering flex-1 pl-16 h-screen ">
       <main id="pader">
@@ -187,8 +192,6 @@ xhr.onreadystatechange = function () {
     }
 };
 
-
-
 var requestData = {
     "Email": emailsi,
     "MotDePasse": passwordsi,
@@ -260,38 +263,38 @@ xhr.send(JSON.stringify(requestData))
   <!-- the end of footer section -->
 
   <!--! Form script-->
- <script>
-    // $(document).ready(function () {
-    //   $("#registrationForm").submit(function (event) {
-    //     event.preventDefault();
-    //     var requestData = {
-    //       "username": $("#username").val(),
-    //       "Email": $("#email").val(),
-    //       "MotDePasse": $("#password").val(),
-    //       "id_role": $("#role").val()
-    //     };
+   <script>
+    $(document).ready(function () {
+      $("#registrationForm").submit(function (event) {
+        event.preventDefault();
+        var requestData = {
+          "username": $("#username").val(),
+          "Email": $("#email").val(),
+          "MotDePasse": $("#password").val(),
+          "id_role": $("#role").val()
+        };
 
-    //     // Log the requestData object to the console
-    //     console.log("Request Data:", requestData);
+        // Log the requestData object to the console
+        console.log("Request Data:", requestData);
 
-    //     // Your AJAX request code can go here
-    //     $.ajax({
-    //       type: "POST",
-    //       url: "/your-server-endpoint",
-    //       data: requestData,
-    //       success: function (response) {
-    //         console.log("Registration successful: ", response);
-    //         // Handle success response from the server
-    //       },
-    //       error: function (error) {
-    //         console.error("Error during registration: ", error);
-    //         // Handle error response from the server
-    //       }
-    //     });
-    //   });
-    // });
+        // Your AJAX request code can go here
+        $.ajax({
+          type: "POST",
+          url: "/your-server-endpoint",
+          data: requestData,
+          success: function (response) {
+            console.log("Registration successful: ", response);
+            // Handle success response from the server
+          },
+          error: function (error) {
+            console.error("Error during registration: ", error);
+            // Handle error response from the server
+          }
+        });
+      });
+    });
 
- </script> 
+  </script> 
   <!--! Form script-->
 
 
