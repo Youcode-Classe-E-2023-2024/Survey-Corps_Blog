@@ -33,6 +33,37 @@
      <title>Your Title</title>
     
  </head>
+ <style>
+    /* Styling for the overlay background */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(173, 169, 169, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Styling for the popup container */
+    .popup {
+      background: #7d7a7a;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Additional styling for the input fields and button */
+    input, textarea, button {
+        color: black;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+  </style>
  <body>
     <div class="h-screen text-white flex items-center justify-center  relative">
          
@@ -80,7 +111,7 @@
                 <div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white text-black">
                     <table id="myDataTable" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <thead>
-                            <tr>
+                            <tr >
                                 <th data-priority="1">title</th>
                                 <th data-priority="2">description</th>
                                 <th data-priority="3">created at</th>
@@ -88,34 +119,23 @@
                                 <th data-priority="5">delete</th>
                             </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>evolution of sardin</td>
-                            <td>satdin evouing from tino fredreko</td>
-                            <td>2023-21-09</td>
-                            <td>
-                                <a href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
-                            </td>
-                            <td>
-                                <a href="#">delete <i class="fa-solid fa-delete-left"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> How to blow you're nose right way</td>
-                            <td>blowing you're nose atsiw</td>
-                            <td>2000-09-08</td>
-                            <td>
-                                <a href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
-                            </td>
-                            <td>
-                                <a href="#">delete <i class="fa-solid fa-delete-left"></i></a>
-                            </td>
-                          </tr>
-                          <!-- Add more rows as needed -->
+                        <tbody class="container">
+                          
+                         
+       
                         </tbody>
                     </table>
                 </div>
     </div>
+    <div class="overlay" id="popupOverlay">
+        <div class="popup">
+          <h2>Edit Title and Description</h2>
+          <input type="text" id="newTitle" placeholder="New Title">
+          <textarea id="newDescription" placeholder="New Description"></textarea>
+          <button class="border-2" onclick="saveChanges()">Save Changes</button>
+          <button class="border-2" onclick="closePopup()">Close</button>
+        </div>
+      </div>
     <div class="container mx-auto flex-col px-4 lg:px-20 hidden" id="editPopUpContainer">
         <form action="parameters.html" method="post" id="editForm">
 		    <div class="w-full m-10 p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl text-black" id="bord">
@@ -140,6 +160,54 @@
 	</div>
     </div></div>
     <script>
+        var globalid;
+        function openPopup() {
+    // Display the overlay
+    document.getElementById('popupOverlay').style.display = 'flex';
+  }
+
+  function closePopup() {
+    // Hide the overlay
+    document.getElementById('popupOverlay').style.display = 'none';
+  }
+
+  function saveChanges() {
+    // Get the values from the input fields
+    var newTitle = document.getElementById('newTitle').value;
+    var newDescription = document.getElementById('newDescription').value;
+
+    // You can do something with the values, for example, update the page content
+    console.log('New Title:', newTitle);
+    console.log('New Description:', newDescription);
+    var xhrmodi = new XMLHttpRequest();
+xhrmodi.open("PUT", `http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/MAnonces/${globalid}`, true);
+xhrmodi.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+xhrmodi.setRequestHeader("token", "code");
+xhrmodi.setRequestHeader("userid", "1");
+
+xhrmodi.onreadystatechange = function () {
+    if (xhrmodi.readyState == 4) {
+        if (xhrmodi.status == 200) {
+            // Successful response
+            var data = JSON.parse(xhrmodi.responseText);
+            console.log(data);
+        } else {
+            // Error handling
+            console.error('xhrmodi error:', xhrmodi.status, xhrmodi.statusText);
+        }
+    }
+};
+
+var requestData = {
+    "Titre": newTitle,
+    "Contenu": newDescription
+    
+};
+
+xhrmodi.send(JSON.stringify(requestData))
+    
+    closePopup();
+  }
         console.log("hi")
         if(localStorage.getItem("userid")){
           var id = localStorage.getItem("userid");
@@ -155,13 +223,25 @@
                     // Successful response
                     var data = JSON.parse(xhrfirst.responseText);
                     console.log(data);
-                    let i = 0;
+                  
+                    const container = document.querySelector('.container');
                     data.forEach(element => {
-                        if(element.id_user === id){
-                            let article_id = element.article_id;
+                        if(element.id_user === Number(id)){
+                            console.log('hi')
+                            container.innerHTML += `<tr class="gap-5">
+                            <td>${element.Titre}</td>
+                            <td>${element.Contenu}</td>
+                            <td>${element.Date}</td>
+                            <td>
+                                <a onclick="editarticle(this)" key="${element.ArticleID}" href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
+                            </td>
+                            <td>
+                                <a onclick="deletearticle(this)" key="${element.ArticleID}" href="#">delete <i class="fa-solid fa-delete-left"></i></a>
+                            </td>
+                          </tr>`;
 
                         }else{
-                        
+                            // 
                         }
                     });
                 } else {
@@ -173,7 +253,41 @@
 
         xhrfirst.send();
         }else{
-          console.log("dkhel")
+         window.location.href = 'http://localhost/Survey-Corps_Blog/Front_end/HTML/login.html';
+        }
+
+        function deletearticle(element){
+            
+            console.log(element.getAttribute('key'));
+            var xhrarticd = new XMLHttpRequest();
+            xhrarticd.open("DELETE", `http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/DANONCES/${element.getAttribute('key')}`, true);
+            xhrarticd.setRequestHeader("Content-Type", "application/json");  // Set the Content-Type header for JSON data
+            xhrarticd.setRequestHeader("token", "code");
+            xhrarticd.setRequestHeader("userid", "1");
+
+            xhrarticd.onreadystatechange = function () {
+                if (xhrarticd.readyState == 4) {
+                    if (xhrarticd.status == 200) {
+                        // Successful response
+                        var data = JSON.parse(xhrarticd.responseText);
+                        console.log(data);
+                    } else {
+                        // Error handling
+                        console.error('xhrarticd error:', xhrarticd.status, xhrarticd.statusText);
+                    }
+                }
+            };
+
+
+
+            xhrarticd.send()
+
+        }
+        function editarticle(element){
+            globalid = element.getAttribute('key');
+            openPopup()
+            console.log(element.getAttribute('key'))
+            
         }
     </script>
 <script src="../JsFiles/parameters.js"></script>
