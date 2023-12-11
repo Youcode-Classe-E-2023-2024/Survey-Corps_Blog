@@ -160,10 +160,9 @@
                             justify-content: center;
                             align-items: center;
                             flex-direction: column;
-                            background: url("../Images/pic4.jpg");
+                            background: url("../Images/pic4.jpg") 50%;
                             background-size: cover;
                             backdrop-filter: blur(5px);
-                            opacity: 80%;
                         } 
 
                         .ContactContent{                          
@@ -224,6 +223,7 @@
                             flex-direction: column;
                             font-weight: 300;
                             font-family: italic font-mono;
+                            
                         }
 
                         .texte h3{
@@ -410,32 +410,33 @@
                             </div>
                 
                                 <div class="ContactForm">
-                                    <form> 
+                                    <form id="myForm">
                                         <h2>Send Message</h2>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <input type="text" name="" required="required">
+                                            <input type="text" name="fullname" id="fullname" required="required">
                                             <span>Full Name</span>
                                         </div>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <input type="text" name="" required="required">
+                                            <input type="email" name="email" id="email" required="required">
                                             <span>Email</span>
                                         </div>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <textarea required="required"></textarea>
+                                            <textarea required="required" name="message" id="message"></textarea>
                                             <span>Type your Message...</span>
                                         </div>
+                                    
                                         <div class="inputBox"> 
                                             <input type="submit" class="Send" value="Send">
                                         </div>
+                                    
                                         <div class="inputBox"> 
-                                            <button style=" width: 100%; border-bottom: 2px solid #333; border-radius: 13px; background-color: #4A9DEC;" class=" hover:bg-blue-700; bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" >
+                                            <button style="width: 100%; border-bottom: 2px solid #333; border-radius: 13px; background-color: #4A9DEC;" class="hover:bg-blue-700; bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                                                 <a href="about.html" style="color: #000;">About Us</a>
                                             </button>
                                         </div>                  
-                                        
                                     </form>
                                 </div>
                         </div>
@@ -459,6 +460,20 @@
                 supportSection.style.display = "none";
             }
         });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents the form from submitting in the traditional way
+
+        var nameValue = document.getElementById('fullname').value;
+        var emailValue = document.getElementById('email').value;
+        var MsgValue = document.getElementById('message').value;
+
+        console.log('Name:', nameValue);
+        console.log('Email:', emailValue);
+        console.log('Message:', MsgValue);
+
+        // Add further processing or sending data to a server here
+    });
 
     </script>
 
