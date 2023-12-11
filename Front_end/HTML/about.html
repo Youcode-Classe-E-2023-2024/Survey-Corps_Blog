@@ -160,25 +160,28 @@
                             justify-content: center;
                             align-items: center;
                             flex-direction: column;
-                            background: url("../Images/pic1.jpeg");
+                            background: url("../Images/pic4.jpg") 50%;
                             background-size: cover;
-                            opacity: 80%;
+                            backdrop-filter: blur(5px);
                         } 
 
-                        .ContactContent{
+                        .ContactContent{                          
                             max-width: 800px;
+                            margin: auto;
                             text-align: center;
                         }
 
                         .ContactContent h2{
                             font-size: 36px;
-                            font-weight: 500;
-                            color: aliceblue;
+                            font-weight: 500;                     
+                            color: rgb(250, 243, 243);
+                            font-family: italic font-mono;
                         }
 
                         .ContactContent p{
-                            font-weight: 300;
-                            color: aliceblue;
+                            font-weight: 700;
+                            color: rgb(255, 245, 245);
+                           
                         }
 
                         .container{
@@ -216,28 +219,34 @@
                         .texte{
                             display: flex;
                             margin-left: 20px;
-                            font-size: 16px;
-                            color: #fff;
+                            font-size: 20px;
+                            color: #fcf3f3;
                             flex-direction: column;
                             font-weight: 300;
+                            font-family: italic font-mono;                         
+                        }
+                        .texte p{
+                            background-color: #00000039;
+                            padding: 1em;
+                            border-radius: 15px;
                         }
 
                         .texte h3{
-                            font-weight: 500;
-                            color: #000000;
+                            font-weight: 600;
+                            color: #fdf2f2;
                         }
 
                         .ContactForm{
                             width: 40%;
                             padding: 40px;
-                            background-color: rgba(255, 255, 255, 0.274);
+                            background-color: rgba(3, 3, 3, 0.283);
                             border-radius: 15px;
                         }
 
                         .ContactForm h2{
                             display: flex;
                             font-size: 30px;
-                            color: #4A9DEC;
+                            color: rgb(72, 149, 222);
                             font-weight: 500;
                             justify-content: center;    
                         }
@@ -343,6 +352,7 @@
                             </div>
                             </div>
 
+
                             <div class="column">
                             <div class="card">
                                 <img src="../Images/pic2.webp" alt="John" style="width:100%">
@@ -358,6 +368,7 @@
                             <button id= "contactMeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full">
                                 Contact Us </button>
                         </div>
+
                     </section>
                    
                     <!-- *********************************************** -->
@@ -368,6 +379,7 @@
                                address your requests promptly. Your satisfaction and safety are our top priorities, and we look forward to helping you get
                                back on the road with peace of mind.</p>
                         </div>
+
                         <div class="container">
                             <div class="ConatctInfo">
                                 <div class="Box">
@@ -379,6 +391,7 @@
                                         <p>234 plateau, <br>Safi Maroc</p>
                                     </div>
                                 </div>
+                                
                 
                                 <div class="Box">
                                     <div class="Icon">
@@ -386,7 +399,7 @@
                                     </div>
                                     <div class="texte">
                                         <h3>Phone</h3>
-                                        <p>06 66 66 66 66</p>
+                                        <p>+212-5242-12879</p>
                                     </div>
                                 </div>
                 
@@ -402,32 +415,33 @@
                             </div>
                 
                                 <div class="ContactForm">
-                                    <form> 
+                                    <form id="myForm">
                                         <h2>Send Message</h2>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <input type="text" name="" required="required">
+                                            <input type="text" name="fullname" id="fullname" required="required">
                                             <span>Full Name</span>
                                         </div>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <input type="text" name="" required="required">
+                                            <input type="email" name="email" id="email" required="required">
                                             <span>Email</span>
                                         </div>
-                
+                                    
                                         <div class="inputBox"> 
-                                            <textarea required="required"></textarea>
+                                            <textarea required="required" name="message" id="message"></textarea>
                                             <span>Type your Message...</span>
                                         </div>
+                                    
                                         <div class="inputBox"> 
                                             <input type="submit" class="Send" value="Send">
                                         </div>
+                                    
                                         <div class="inputBox"> 
-                                            <button style=" width: 100%; border-bottom: 2px solid #333; border-radius: 13px; background-color: #4A9DEC;" class=" hover:bg-blue-700; bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" >
+                                            <button style="width: 100%; border-bottom: 2px solid #333; border-radius: 13px; background-color: #4A9DEC;" class="hover:bg-blue-700; bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                                                 <a href="about.html" style="color: #000;">About Us</a>
                                             </button>
                                         </div>                  
-                                        
                                     </form>
                                 </div>
                         </div>
@@ -437,6 +451,7 @@
      <div>
      </div>
     <!-- ******************************************************************* -->
+
      <script>
         var contactMeButton = document.getElementById("contactMeButton");
         var supportSection = document.getElementById("supportSection");
@@ -451,6 +466,19 @@
                 supportSection.style.display = "none";
             }
         });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents the form from submitting in the traditional way
+
+        var nameValue = document.getElementById('fullname').value;
+        var emailValue = document.getElementById('email').value;
+        var MsgValue = document.getElementById('message').value;
+
+        console.log('Name:', nameValue);    
+        console.log('Email:', emailValue);
+        console.log('Message:', MsgValue);
+
+    });
 
     </script>
 
