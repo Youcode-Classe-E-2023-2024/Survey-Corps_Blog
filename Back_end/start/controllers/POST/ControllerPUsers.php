@@ -9,6 +9,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){;
         
 
         $Users->Insert("Utilisateurs",$data);
+        $id = $Users->selectWhere("id_user","Utilisateurs","Email = {$data['Email']} AND MotDePasse = {$data['MotDePasse']} ");
+        echo $id;
+        // $Users->Insert("Utilisateurs",$data);
+        // $Users->Insert("Utilisateurs",$data);
+        // $Users->Insert("Utilisateurs",$data);
 
         
 
