@@ -65,6 +65,7 @@
              
          </div>
          <!-- content -->
+         <div class="mx-4 mt-8 pd-10 ml-16">
          <div class="flex gap-12">
          <div class="flex-1 pl-16 h-screen md:w-3/4 xl:w-4/5" id="blogsTable">
                 <!-- 
@@ -96,7 +97,7 @@
                                 <a href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
                             </td>
                             <td>
-                                <a href="#">delete <i class="fa-solid fa-delete-left" edit-btn></i></a>
+                                <a href="#">delete <i class="fa-solid fa-delete-left"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -104,7 +105,7 @@
                             <td>blowing you're nose atsiw</td>
                             <td>2000-09-08</td>
                             <td>
-                                <a href="#"> edit <i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#"> edit <i class="fa-solid fa-pen-to-square" edit-btn></i></a>
                             </td>
                             <td>
                                 <a href="#">delete <i class="fa-solid fa-delete-left"></i></a>
@@ -137,7 +138,44 @@
 		    </div>
         </form>
 	</div>
-    </div>
+    </div></div>
+    <script>
+        console.log("hi")
+        if(localStorage.getItem("userid")){
+          var id = localStorage.getItem("userid");
+        
+          var xhrfirst = new XMLHttpRequest();
+        xhrfirst.open("GET", "http://localhost/Survey-Corps_Blog/Back_end/start/middleware.php/anonces", true);
+        xhrfirst.setRequestHeader("token", "code");
+        xhrfirst.setRequestHeader("userid", 1);
+        
+        xhrfirst.onreadystatechange = function () {
+            if (xhrfirst.readyState == 4) {
+                if (xhrfirst.status == 200) {
+                    // Successful response
+                    var data = JSON.parse(xhrfirst.responseText);
+                    console.log(data);
+                    let i = 0;
+                    data.forEach(element => {
+                        if(element.id_user === id){
+                            let article_id = element.article_id;
+
+                        }else{
+                        
+                        }
+                    });
+                } else {
+                    // Error handling
+                    console.error('xhrfirst error:', xhrfirst.status, xhrfirst.statusText);
+                }
+            }
+        };
+
+        xhrfirst.send();
+        }else{
+          console.log("dkhel")
+        }
+    </script>
 <script src="../JsFiles/parameters.js"></script>
  </body>
  
