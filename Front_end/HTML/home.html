@@ -15,7 +15,68 @@
      <title>Your Title</title>
 
      <style>
+            body {
+              background-image: url('../Images/bkg.jpg');
+              background-size: cover; /* Adjust the background size */
+              background-position: center; /* Center the background image */
+              height: 100vh; /* Ensure the background covers the entire viewport height */
+              margin: 0; /* Remove default margin */
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+            .content{
+              width: 1200px;
+              height: auto;
+              margin: auto;
+              color: #fff;
+              position: relative;
+          }
 
+          .content .par{
+              padding-left: 20px;
+              padding-bottom: 25px;
+              font-family: Arial;
+              letter-spacing: 1.2px;
+              line-height: 30px;
+          }
+
+          .content h1{
+              font-family: 'Times New Roman';
+              font-size: 50px;
+              padding-left: 20px;
+              margin-top: 9%;
+              letter-spacing: 2px;
+          }
+
+          .content .cn{
+              width: 160px;
+              height: 40px;
+              background: #4A9DEC;
+              border: none;
+              margin-bottom: 10px;
+              margin-left: 20px;
+              font-size: 18px;
+              border-radius: 10px;
+              cursor: pointer;
+              transition: .4s ease;
+              
+          }
+
+          .content .cn a{
+              text-decoration: none;
+              color: #000;
+              transition: .3s ease;
+          }
+
+          .cn:hover{
+              background-color: #fff;
+          }
+
+          .content span{
+              color: #4A9DEC;
+              font-size: 65px
+          }
      </style>
 
  </head>
@@ -48,10 +109,15 @@
   </div>
 </div>
 <!-- content -->
+    
+          <div class="content">
+            <h1>Web Design & <br><span>Development</span> <br>Course</h1>
+            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
+                 expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
+                <br> a quae totam ipsa illum minus laudantium?</p>
 
-        <section class="backgroud">
-          
-        </section>
+                <button class="cn"><a href="#">JOIN US</a></button>
+
      
  </body>
  <script src="../JsFiles/home.js">
