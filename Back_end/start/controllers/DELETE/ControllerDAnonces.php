@@ -9,7 +9,8 @@ if($_SERVER['REQUEST_METHOD'] === "DELETE"){
         $permissions =  $Anonce->selectWhere('id_Permission ',"affecter_user_permissions","id_user = {$this->senderid} AND id_Permission = 2");
         
         if($permissions){
-            $Anonce->delete("Articles","ArticleID = {$this->others[0]}");
+            // $Anonce->delete("Articles","ArticleID = {$this->others[0]}");
+            $Anonce->Update("Articles",["deleted"=>"yes"],"ArticleID = {$this->others[0]}");
         }else{
             echo "no permission for the delete";
         }
